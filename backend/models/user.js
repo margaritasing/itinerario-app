@@ -8,6 +8,7 @@ const usersSchema = new mongoose.Schema({
      password:{type:String, require:true},
      uniqueText:{ type: String, require: true},
      emailVerificado:{type:Boolean,require:true},
+     connected: {type: Boolean, require: true},
      
 })
 const User = mongoose.model("users",usersSchema)

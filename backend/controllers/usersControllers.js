@@ -1,8 +1,9 @@
-const nodemailer = require("nodemailer")
-const crypto =require("crypto")
-const User = require("../models/user.js")
-const bcryptjs = require("bcryptjs")
-const { response } = require("express")
+const nodemailer = require("nodemailer");
+const crypto =require("crypto");
+const User = require("../models/user.js");
+const bcryptjs = require("bcryptjs");
+//const { response } = require("express")
+const jwt = require("jsonwebtoken");
 
 async function sendEmail(email, uniqueText){
 
@@ -35,56 +36,108 @@ async function sendEmail(email, uniqueText){
    })
 }
 
-
 const usersControllers = {
 
-    verifyEmail: async (req, res)=>{//controlador que recibe el clip del email, y busca el usuario en la base(emailverificado, lo pasa de false a true)
-     const{uniqueText}=req.params// toma el parametro de la clave
-     const user= await User.findOne({uniqueText:uniqueText})
-     if (user) {
-         user.emailVerificado= true
-         await user.save()
-         res.redirect("http://localhost:3000/signin")
-     }else{
-         res.json({success:false, response:"It has not been possible to verfy your email"})
-     }
+    verifyEmail: async (req, res) => { //es el controlador que recibe el click del usuario en el email
+        const { uniqueText } = req.params
+        const user = await User.findOne({ uniqueText: uniqueText })
+        if (user) {
+            user.emailVerificado = true
+            await user.save()
+            res.redirect("http://localhost:3000/signin")
+        }
+        else {
+            res.json({ success: false, response: "Your e-mail could not be verified" })
+        }
     },
-    nuevoUsuario: async (req,res) => {
 
-    const {firstname, lastname, email, password}=req.body.NuevoUsuario
-        console.log(req.body)
+    nuevoUsuario: async (req, res) => {
+
+        const { firstName, lastName, email, password } = req.body.NuevoUsuario // destructuring
+
         try {
-            const UsuarioExiste = await User.findOne({email})
 
-            if (UsuarioExiste){
-                res.json({success:"falseUE", response:"User already exists, login"})
+            const usuarioExiste = await User.findOne({ email })
+            console.log(req.body)
+            if (usuarioExiste) {
+                res.json({ success: "falseUE", response: "The user already exists, perform SignIn" })
             }
-            else{
-                
-                const uniqueText= crypto.randomBytes(15).toString("hex")// genera un texto de 15 caracteres hexagecimal
-                const emailVerificado=false
-                const passwordHash = bcryptjs.hashSync(password,10)
+
+            else {
+                const uniqueText = crypto.randomBytes(15).toString("hex") //texto randon de 15 caracteres hexadecimal
+                const emailVerificado = false
+                const passwordHash = bcryptjs.hashSync(password, 10)
                 const NewUser = new User({
-                    firstname,
-                    lastname,
+                    firstName,
+                    lastName,
                     email,
                     password: passwordHash,
-                    uniqueText,//busca la coincidencia del texto, no se pasa nunca password
+                    uniqueText, //busca la coincidencia del texto
                     emailVerificado,
-
+                    connected:false,
                 })
+
                 if (!emailVerificado) {
                     await NewUser.save()
-                    await sendEmail(email, uniqueText)// esperamos que se cree el usuario nuevo
-                    res.json({success:"trueUE",response:"An email has been sent to verify your email"})
+                    await sendEmail(email, uniqueText)
+                    res.json({ success: "trueUE", response: "We have sent an e-mail to verify your e-mail address" })
                 }
-               
-               
             }
-           
         }
-catch(error){res.json({success:"falseUE",response:null,error:error})
+
+        catch (error) { res.json({ success: "falseUE", response: null, error: error }) }
+    },
+
+    accesoUsuario: async (req, res) => {
+
+        const { email, password } = req.body.userData
+
+        try {
+            const usuario = await User.findOne({ email })
+
+            if (!usuario) {
+                res.json({ success: false, from: "controller", error: "el usuario y/o contraseña es incorrecto" })
+            }
+            else {
+                if (usuario.emailVerificado) {
+                    let passwordCoincide = bcryptjs.compareSync(password, usuario.password)
+
+                    if (passwordCoincide) {
+                        const token = jwt.sign({ ...usuario }, process.env.SECRETKEY)
+                        const datosUser = {
+                            firstName: usuario.firstName,
+                            lastName: usuario.lastName,
+                            email: usuario.email,
+                        }
+                        usuario.connected=true
+                        await usuario.save()
+                        res.json({ success: true, from: "controller", response: { token, datosUser } }) // "logueado" })
+                    }
+                    else { res.json({ success: false, from: "controller", error: "el usuario y/o contraseña es incorrecto" }) }
+                }
+                else { res.json({ success: false, from: "controller", error: "verifica tu e-mail para validarte" }) }
+            }
         }
+        catch (error) { console.log(error); res.json({ success: false, response: null, error: error }) }
+
+    },
+
+    cerrarCesion: async (req,res) => {
+
+        const email = req.body.email
+        console.log(req.body.email)
+
+        const user = await User.findOne({email})
+
+        user.connected=false
+
+        await user.save()
+        res.json({success:true, response:"cesión cerrada"})
+
     }
 }
+
+
+
+
 module.exports = usersControllers
