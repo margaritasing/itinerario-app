@@ -40,7 +40,7 @@ export default function Services() {
     <Section id="services">
       {data.map((service, index) => {
         return (
-          <div className="service" key={index}>
+          <div className="service" key={service.id}>
             <div className="icon">
               <img src={service.icon} alt="" />
             </div>
@@ -73,7 +73,7 @@ const Section = styled.section`
     }
     .icon {
       img {
-        margin-left:120px;
+        margin-left:110px;
         height: 2.4rem;
       }
     }
