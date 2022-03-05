@@ -17,10 +17,10 @@ import Cities from "./components/Cities";
 import Navbar from "./components/NavBar";
  import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp"; 
-import CardCities from "./components/CardCities";
+
 import City from "./components/City";
 import Top from "./components/Top";
-import SingUpYSingIn from "./components/SingUpYSingIn/SingUpYSingIn";
+
 import SignOut from "./components/SignOut";
 
 function App() {
