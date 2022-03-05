@@ -13,6 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
+import Swal from "sweetalert2";
+
 import axios from 'axios';
 
 function Copyright() {
@@ -78,6 +80,11 @@ export default function SignUp() {
    console.log(data.response.error.details)
   alert(data.response.error.details.map(error=>error.message))
   }else if(data.success==="trueUE"){
+    Swal.fire(
+      'Good job!',
+      'Registered user!',
+      'success'
+    )
     console.log(data)
   }
  }
