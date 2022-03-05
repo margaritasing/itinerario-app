@@ -21,6 +21,7 @@ import CardCities from "./components/CardCities";
 import City from "./components/City";
 import Top from "./components/Top";
 import SingUpYSingIn from "./components/SingUpYSingIn/SingUpYSingIn";
+import SignOut from "./components/SignOut";
 
 function App() {
   const [{cities, itineraries}, dispatch]=useStateValue()
@@ -62,7 +63,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cities" element={<Cities />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />          
+          <Route path="/signup" element={<SignUp />} />  
+          <Route path="/signout" element={<SignOut />} />          
           <Route path="/city/:id" element={<City/>}
           />
         </Routes>

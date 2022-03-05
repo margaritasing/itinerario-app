@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import Imagen from "../img/logo.png";
+import { useState } from "react";
+
 
 import Register from "./Register";
 
 function Navbar() {
+  
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top" style={{ backgroundColor:"#d0d8ff"}}>
       <div className="container-fluid">
@@ -24,8 +29,8 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse ms-4 " id="navbarNav">
-          <div className="navegacion">
-            <ul className="navbar-nav">
+          <div className="navegacion offset-8">
+            <ul className="navbar-nav ">
               <li className="nav-item">
                 <Link className="nav-link active" style={{color:"#000"}} aria-current="page" to="/">
                   Home

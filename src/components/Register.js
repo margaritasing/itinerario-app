@@ -37,13 +37,12 @@ function Register() {
               <button type="button" className="btn btn-dark bg-dark text-white mt-2">
                 Sign In
               </button>
-            </LinkRouter> : <button type="button" className="btn btn-info bg-warning  text-white ms-3 mt-2"  onClick={() => cerrarCesion()}>
-            Sign Out     </button>
-            
-           
-
+            </LinkRouter> :
+            <LinkRouter to="/signout">            
+            <button type="button" className="btn btn-info bg-warning  text-white ms-3 mt-2"  onClick={() => cerrarCesion()}>
+            Sign Out</button> 
+            </LinkRouter>    
             }
-
             <LinkRouter to="/signup">
               <button type="button" className="btn btn-info bg-info  text-white ms-3 mt-2">
                 Sign Up
