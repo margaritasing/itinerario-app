@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import Swal from "sweetalert2";
+import GoogleLogin from 'react-google-login';
 
 import axios from 'axios';
 
@@ -53,36 +54,65 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
+   const responseGoogle = async (response) => {
+    console.log(response);
+    const NuevoUsuario = {
+      firstname: response.profileObj.givenName,
+      lastname: response.profileObj.familyName,
+      email: response.profileObj.email,
+      password:response.googleId + "aB",
+      google:true
+    }
+
+    
+   await axios.post("http://localhost:4000/api/signup",{NuevoUsuario} )
+   .then(response=>    
+   displayMessages(response.data)
+ )
+ function displayMessages(data){
+  if(data.success===false){
+    console.log(data)
+   console.log(data.response.error.details)
+  alert(data.response.error.details.map(error=>error.message))
+  }else if(data.success===true){
+    Swal.fire(
+      'Good job!',
+      'Registered user with google!',
+      'success'
+    )
+    console.log(data)
+  }
+ }
+    
+  }
+  
+
 
   async function NewUser(event){
     event.preventDefault()
     const NuevoUsuario = {firstname:event.target[0].value,
                           lastname:event.target[2].value,
                           email:event.target[4].value,
-                          password:event.target[6].value}
-   
-    
-  
+                          password:event.target[6].value,
+                          google:false
+                        
+                        }  
  
    await axios.post("http://localhost:4000/api/signup",{NuevoUsuario} )
-   .then(response=> //alert(response.data.response))
- 
-   // if(response.success==="falseVAL"){
- 
-   //  console.log(response.data)
-   // }
+   .then(response=> //alert(response.data.response)) 
+  
    
    displayMessages(response.data)
  )
  function displayMessages(data){
-  if(data.success==="falseVAL"){
+  if(data.success===false){
     console.log(data)
    console.log(data.response.error.details)
   alert(data.response.error.details.map(error=>error.message))
-  }else if(data.success==="trueUE"){
+  }else if(data.success===true){
     Swal.fire(
       'Good job!',
-      'Registered user!',
+      'Registered user with SingIn!',
       'success'
     )
     console.log(data)
@@ -176,6 +206,13 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
+        <GoogleLogin
+        clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
+        buttonText="SingUp with Google Account"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+      />,
       </div>
       <Box mt={5}>
         <Copyright />

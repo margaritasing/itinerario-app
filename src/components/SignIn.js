@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
+import GoogleLogin from 'react-google-login';
 import { useStateValue } from '../reducer/StateProvider';
 import { actionType } from '../reducer/reducer';
 import axios from 'axios';
@@ -52,9 +53,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-
-
 const [{ user }, dispatch] = useStateValue()
+
+const responseGoogle = (response) => {
+  console.log(response);
+  
+}
+
 
     async function loginUser(event) {
         event.preventDefault() // previene el comportamiento por defecto del botón submit, que es limpiar el formulario
@@ -154,8 +159,16 @@ const [{ user }, dispatch] = useStateValue()
               </Link>
             </Grid>
           </Grid>
-        </form>
+          
+        </form>   
       </div>
+      <GoogleLogin
+      clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={responseGoogle}
+      onFailure={responseGoogle}
+      cookiePolicy={'single_host_origin'}
+    />,
       <Box mt={8}>
         <Copyright />
       </Box>

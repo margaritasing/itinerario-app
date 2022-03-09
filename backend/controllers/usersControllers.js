@@ -4,6 +4,7 @@ const User = require("../models/user.js");
 const bcryptjs = require("bcryptjs");
 //const { response } = require("express")
 const jwt = require("jsonwebtoken");
+const { response } = require("express");
 
 async function sendEmail(email, uniqueText){
 
@@ -53,21 +54,39 @@ const usersControllers = {
 
     nuevoUsuario: async (req, res) => {
 
-        const { firstName, lastName, email, password } = req.body.NuevoUsuario // destructuring
+        const { firstName, lastName, email, password, google } = req.body.NuevoUsuario // destructuring
 
         try {
 
             const usuarioExiste = await User.findOne({ email })
             console.log(req.body)
             if (usuarioExiste) {
-                res.json({ success: "falseUE", response: "The user already exists, perform SignIn" })
-            }
+                     
+             
+                if(google){                
+                    const passwordHash = bcryptjs.hashSync(password, 10)
+                    usuarioExiste.password= passwordHash;
+                    usuarioExiste.emailVerificado= true;
+                    usuarioExiste.google= true;
+                    usuarioExiste.connected= false;
 
-            else {
-                const uniqueText = crypto.randomBytes(15).toString("hex") //texto randon de 15 caracteres hexadecimal
+                    usuarioExiste.save();
+                    res.json({success:true, from:"google", response:"Actualizo el singin, ahora lo puedes hacer con google"})                   
+                    
+                }else{
+                    res.json({success:false, from:"SingUp", response:"Este email ya esta en uso, por favor realiza singIN"})                   
+
+                }
+                
+
+             }
+             
+             else {
                 const emailVerificado = false
+                const uniqueText = crypto.randomBytes(15).toString("hex") //texto randon de 15 caracteres hexadecimal                
                 const passwordHash = bcryptjs.hashSync(password, 10)
-                const NewUser = new User({
+
+                const newUser = new User({
                     firstName,
                     lastName,
                     email,
@@ -75,17 +94,34 @@ const usersControllers = {
                     uniqueText, //busca la coincidencia del texto
                     emailVerificado,
                     connected:false,
+                    google
                 })
 
-                if (!emailVerificado) {
-                    await NewUser.save()
+                if(google){
+                    newUser.emailVerificado= true;
+                    newUser.google=true,
+                    newUser.connected= false,
+
+                    await newUser.save()
+
+                    res.json({success:true,from:"google", response:"Felicitaciones hemos creado tu usuario con google",data:{newUser}})
+                }
+
+
+                else {
+                    newUser.emailVerificado=false
+                    newUser.google= false
+                    newUser.connected= false
+                    await newUser.save()
                     await sendEmail(email, uniqueText)
-                    res.json({ success: "trueUE", response: "We have sent an e-mail to verify your e-mail address" })
+                    res.json({ success:true, from:"SingUp", response: "We have sent an e-mail to verify your e-mail address" , data:{newUser}})
                 }
             }
         }
 
-        catch (error) { res.json({ success: "falseUE", response: null, error: error }) }
+
+
+        catch (error) { res.json({ success: false,from:"SingUp",  response: null, error: error }) }
     },
 
     accesoUsuario: async (req, res) => {
