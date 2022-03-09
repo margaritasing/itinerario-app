@@ -207,7 +207,7 @@ export default function SignUp() {
           </Grid>
         </form>
         <GoogleLogin
-        clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
+        clientId="aqui va la clave de la api"
         buttonText="SingUp with Google Account"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
