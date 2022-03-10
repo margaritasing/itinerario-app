@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 
 import Swal from "sweetalert2";
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 import axios from 'axios';
 
@@ -54,14 +55,16 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
-   const responseGoogle = async (response) => {
+  /* SignUp con Google start */
+   /* const responseGoogle = async (response) => {
     console.log(response);
     const NuevoUsuario = {
       firstname: response.profileObj.givenName,
       lastname: response.profileObj.familyName,
       email: response.profileObj.email,
       password:response.googleId + "aB",
-      google:true
+      google:true,
+      from:"Google"
     }
 
     
@@ -70,31 +73,71 @@ export default function SignUp() {
    displayMessages(response.data)
  )
  function displayMessages(data){
-  if(data.success===false){
+  if(data.success==="falseVAL"){
     console.log(data)
    console.log(data.response.error.details)
   alert(data.response.error.details.map(error=>error.message))
   }else if(data.success===true){
     Swal.fire(
       'Good job!',
-      'Registered user with google!',
+      'Registered user with Google!',
       'success'
     )
     console.log(data)
   }
  }
     
+  } */
+
+  /* SignUp con Google end */
+
+  /* Aqui comienza el sign up de facebook */
+
+  const responseFacebook = async (response) => {
+    console.log(response);
+
+    const NuevoUsuario = {
+                        email:response.email,
+                        firstname:response.name,
+                        lastname:"facebook",            
+                        password:response.id + "aB", 
+                        from:"Facebook"    
+    }  
+
+      await axios.post("http://localhost:4000/api/signup",{NuevoUsuario} )
+      .then(response=> //alert(response.data.response)) 
+
+
+      displayMessages(response.data)
+      )
+
+      
+      function displayMessages(data){
+      if(data.success==="falseVAL"){
+          console.log(data)
+          console.log(data.response.error.details)
+          alert(data.response.error.details.map(error=>error.message))
+      }else if(data.success===true){
+          Swal.fire(
+          'Good job!',
+          'Registered user with Facebook!',
+          'success'
+          )
+      console.log(data)
+      }
+    }
   }
-  
 
+  /* Final del sign in de facebook */
 
+  /* SignUP start */
   async function NewUser(event){
     event.preventDefault()
     const NuevoUsuario = {firstname:event.target[0].value,
                           lastname:event.target[2].value,
                           email:event.target[4].value,
                           password:event.target[6].value,
-                          google:false
+                          from:"SignUp"
                         
                         }  
  
@@ -105,7 +148,7 @@ export default function SignUp() {
    displayMessages(response.data)
  )
  function displayMessages(data){
-  if(data.success===false){
+  if(data.success==="falseVAL"){
     console.log(data)
    console.log(data.response.error.details)
   alert(data.response.error.details.map(error=>error.message))
@@ -119,6 +162,8 @@ export default function SignUp() {
   }
  }
   }
+
+  /* SIgn UP End */
  
  
 
@@ -206,13 +251,17 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
-        <GoogleLogin
-        clientId="aqui va la clave de la api"
-        buttonText="SingUp with Google Account"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-      />,
+        {/* <GoogleLogin
+          clientId="aqui va la clave de la api"
+          buttonText="SingUp with Google Account"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+  cookiePolicy={'single_host_origin'}/>, */}
+        <FacebookLogin
+          appId="1062880977629069"
+          autoLoad={true}
+          fields="name,email,picture"        
+          callback={responseFacebook} />
       </div>
       <Box mt={5}>
         <Copyright />

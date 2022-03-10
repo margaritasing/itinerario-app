@@ -54,16 +54,32 @@ const usersControllers = {
 
     nuevoUsuario: async (req, res) => {
 
-        const { firstName, lastName, email, password, google } = req.body.NuevoUsuario // destructuring
+        const { firstname, lastname, email, password, from } = req.body.NuevoUsuario // destructuring
 
         try {
 
             const usuarioExiste = await User.findOne({ email })
             console.log(req.body)
             if (usuarioExiste) {
-                     
+              
+                /* Facebook start if */
+                if(from !== "SignUp"){
+                    const passwordHash = bcryptjs.hashSync(password, 10)
+                    usuarioExiste.password= passwordHash;
+                    usuarioExiste.emailVerificado= true;
+                    usuarioExiste.from= from;
+                    usuarioExiste.connected= false; 
+
+                    usuarioExiste.save();
+                    res.json({success:true, response:"Actualizo el singin, ahora lo puedes hacer con"+ from})        
+                }else{
+                    rep.json({success:false, response:"EL nombre de usuario ya esta en uso"})
+                }
+                 /* Facebook end if */
+
+                  /* Google start if */                     
              
-                if(google){                
+               /*  if(google){                
                     const passwordHash = bcryptjs.hashSync(password, 10)
                     usuarioExiste.password= passwordHash;
                     usuarioExiste.emailVerificado= true;
@@ -74,30 +90,57 @@ const usersControllers = {
                     res.json({success:true, from:"google", response:"Actualizo el singin, ahora lo puedes hacer con google"})                   
                     
                 }else{
-                    res.json({success:false, from:"SingUp", response:"Este email ya esta en uso, por favor realiza singIN"})                   
+                    res.json({success:false, from:"SignUp", response:"Este email ya esta en uso, por favor realiza singIN"})                   
 
-                }
+                } */
+                 /*google end if */
                 
 
-             }
+             } /* final de if de usuario existe */
              
-             else {
+             else { /* start else del if de usuario existe */
                 const emailVerificado = false
                 const uniqueText = crypto.randomBytes(15).toString("hex") //texto randon de 15 caracteres hexadecimal                
                 const passwordHash = bcryptjs.hashSync(password, 10)
 
                 const newUser = new User({
-                    firstName,
-                    lastName,
+                    firstname,
+                    lastname,
                     email,
                     password: passwordHash,
                     uniqueText, //busca la coincidencia del texto
                     emailVerificado,
                     connected:false,
-                    google
+                  /*   google, */
+                    from,
                 })
 
-                if(google){
+                 /* Facebook start else */
+
+                if (from !== "SignUp") {
+                    newUser.emailVerificado=true;
+                    newUser.from= from;
+                    newUser.connected=false;
+                    
+                    await newUser.save()
+
+                    res.json({success:true,data:{newUser},response:"Felicitaciones hemos creado tu usuario con"+"" +from})
+                }else{
+                    newUser.emailVerificado=false;
+                    newUser.from= from;
+                    newUser.connected= false;
+
+                    await newUser.save();
+                    await sendEmail(email, uniqueText);
+
+                    res.json({ success:true, response: "We have sent an e-mail to verify your e-mail address" , data:{newUser}})
+
+                }
+
+                /* Facebook end else */
+
+                /* Google start else */
+               /*  if(google){
                     newUser.emailVerificado= true;
                     newUser.google=true,
                     newUser.connected= false,
@@ -115,13 +158,10 @@ const usersControllers = {
                     await newUser.save()
                     await sendEmail(email, uniqueText)
                     res.json({ success:true, from:"SingUp", response: "We have sent an e-mail to verify your e-mail address" , data:{newUser}})
-                }
-            }
-        }
-
-
-
-        catch (error) { res.json({ success: false,from:"SingUp",  response: null, error: error }) }
+                } *//* google start else */
+            }/* final del else de usuario existe */
+        }/* final de try */
+        catch (error) { res.json({ success: "falseVAL",from:"SingUp",  response: null, error: error }) }
     },
 
     accesoUsuario: async (req, res) => {
@@ -141,8 +181,8 @@ const usersControllers = {
                     if (passwordCoincide) {
                         const token = jwt.sign({ ...usuario }, process.env.SECRETKEY)
                         const datosUser = {
-                            firstName: usuario.firstName,
-                            lastName: usuario.lastName,
+                            firstname: usuario.firstname,
+                            lastname: usuario.lastname,
                             email: usuario.email,
                         }
                         usuario.connected=true
