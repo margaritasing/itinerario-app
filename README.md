@@ -17,5 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-<img src="https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/itinerary.png?alt=media&token=746eda5a-f560-455a-bf08-84f80012416c" alt="..">
+![Itinerary](https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/itinerary.png?alt=media&token=746eda5a-f560-455a-bf08-84f80012416c)
+
+
 
