@@ -21,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ```
 
 
-![ScreenShot](https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/itinerary.jpg?alt=media&token=d2ddc04b-1bcc-425d-9f73-328aa78cb14e)
+<img style= "margin-left:40px;" src="https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/itinerary.jpg?alt=media&token=d2ddc04b-1bcc-425d-9f73-328aa78cb14e" alt=""  />
 
 
 
