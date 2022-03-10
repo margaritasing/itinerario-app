@@ -2,7 +2,6 @@ const nodemailer = require("nodemailer");
 const crypto =require("crypto");
 const User = require("../models/user.js");
 const bcryptjs = require("bcryptjs");
-//const { response } = require("express")
 const jwt = require("jsonwebtoken");
 const { response } = require("express");
 
@@ -161,7 +160,7 @@ const usersControllers = {
                 } *//* google start else */
             }/* final del else de usuario existe */
         }/* final de try */
-        catch (error) { res.json({ success: "falseVAL",from:"SingUp",  response: null, error: error }) }
+        catch (error) { res.json({ success: "falseVAL",from:"SingUp",  response:"EL correo ya esta en uso", error: error }) }
     },
 
     accesoUsuario: async (req, res) => {
