@@ -259,7 +259,7 @@ export default function SignUp() {
   cookiePolicy={'single_host_origin'}/>, */}
         <FacebookLogin
           appId="1062880977629069"
-          autoLoad={true}
+          autoLoad={false}
           fields="name,email,picture"        
           callback={responseFacebook} />
       </div>

@@ -14,6 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+//import TiSocialFacebookCircular from 'react-icons/lib/ti/social-facebook-circular';
 import { useStateValue } from '../reducer/StateProvider';
 import { actionType } from '../reducer/reducer';
 import axios from 'axios';
@@ -59,6 +61,39 @@ const responseGoogle = (response) => {
   console.log(response);
   
 }
+
+const responseFacebook = async (response) => {
+  console.log(response);
+
+  const userData = {
+    email: response.email,
+    password: response.id +"aB",
+}
+
+
+await axios.post("http://localhost:4000/api/signin",{userData} )
+    .then(response =>
+
+        displayMessages(response.data),
+    )
+  
+function displayMessages(data) {
+  console.log(data)
+    if (!data.success) {
+        console.log((data.error))
+    }
+    else { console.log(data.response) }
+    //else { console.log(swal(data.response)) }
+
+    dispatch({
+        type: actionType.USER,
+        user: data.response
+    })
+    
+}
+  
+}
+
 
 
     async function loginUser(event) {
@@ -168,7 +203,13 @@ const responseGoogle = (response) => {
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
       cookiePolicy={'single_host_origin'}
-    />,
+    />
+    <FacebookLogin
+          appId="1062880977629069"
+          autoLoad={false}
+          fields="name,email,picture"        
+          callback={responseFacebook}
+           />
       <Box mt={8}>
         <Copyright />
       </Box>
