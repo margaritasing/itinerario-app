@@ -72,7 +72,7 @@ const usersControllers = {
                     usuarioExiste.save();
                     res.json({success:true, response:"Actualizo el singin, ahora lo puedes hacer con"+ from})        
                 }else{
-                    rep.json({success:false, response:"EL nombre de usuario ya esta en uso"})
+                    res.json({success:false, response:"EL nombre de usuario ya esta en uso"})
                 }
                  /* Facebook end if */
 
