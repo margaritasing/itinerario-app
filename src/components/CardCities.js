@@ -8,7 +8,8 @@ import { useStateValue } from "../reducer/StateProvider";
 
 export default function CardCities() {
 
-  const [{cities}] = useStateValue()
+  const [{filterCity}] = useStateValue()
+
   const packages = [
     "The Weekend Break",
     "The Package Holiday",
@@ -37,7 +38,7 @@ export default function CardCities() {
         </ul>
       </div>
       <div className="destinations">
-        {cities.map((destination) => {
+        {filterCity?.map((destination) => {
           return (
             <div className="destination" key={destination._id}>
               <img className="cardcities" src={destination.image} alt="" />

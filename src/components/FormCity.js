@@ -1,19 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
+import {actionType } from "../reducer/reducer"
+import { useStateValue } from "../reducer/StateProvider"
 
-import {useFetchCity} from "../Search/UseFetchCity"
 
-const FormImg = () => {
-    const [cities, loading, handleSubmit] = useFetchCity();
+
+
+const FormImg = () => {  
+  
+  const [cities, dispatch] = useStateValue()
+
+      const inputSearch = (event) =>{
+          dispatch({
+            type:actionType.FILTER,
+            value:event.target.value
+          })
+      }
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label className="w-75">
-          Buscar: <input className="w-100" type="text" name="inputText" />
-        </label>
-        <button type="submit" className="btn btn-warning m-2">
-          <span className="material-icons">search</span>
-        </button>
+      <form>
+        <label className="w-80 mt-3 ms-4 ">
+          Buscar: <input className="w-80" type="text" onChange={inputSearch} name="inputText" />
+        </label>        
       </form>
       
 
@@ -21,9 +29,7 @@ const FormImg = () => {
   );
 };
 
-FormImg.propTypes = {
-  handleSubmit: PropTypes.func,
-};
+
 
 export default FormImg;
 
