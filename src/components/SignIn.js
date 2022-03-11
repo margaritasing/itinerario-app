@@ -203,7 +203,7 @@ function displayMessages(data) {
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
       cookiePolicy={'single_host_origin'}
-    />
+    />,
     <FacebookLogin
           appId="1062880977629069"
           autoLoad={false}
