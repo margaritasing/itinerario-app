@@ -1,21 +1,32 @@
-# Mi Itinerary
+  # Mi Itinerary
 
-## Skill: MongoDb, React.js, Express, Node.js, Axios, Hooks, Joi, JWT, Login Facebook y Google,
-## Bcryptjs, Crypto, Nodemailer, Boostrap, Materialize, Material-ui, Sweetalert2, Pexels
+```javascript
+#  Stack : MongoDb, React.js, Express, Node.js, Axios, Hooks, Joi, JWT, Login Facebook y Google,
+#  Bcryptjs, Crypto, Nodemailer, Boostrap, Materialize, Material-ui, Sweetalert2, Pexels
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Este proyecto fue creado con React.js 
 
-## Available Scripts
+## Disponible Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
+```bash 
 Runs the app in the development mode.\
+```
+```bash 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+----------------------->![alt text](https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/itinerary.jpg?alt=media&token=d2ddc04b-1bcc-425d-9f73-328aa78cb14e)<--------------------
 
-<img src="https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/itinerary.png?alt=media&token=746eda5a-f560-455a-bf08-84f80012416c" alt="..">
+
+
+
+
+
+
+
 
