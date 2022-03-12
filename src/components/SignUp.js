@@ -56,14 +56,13 @@ export default function SignUp() {
   const classes = useStyles();
 
   /* SignUp con Google start */
-   /* const responseGoogle = async (response) => {
+    /* const responseGoogle = async (response) => {
     console.log(response);
     const NuevoUsuario = {
       firstname: response.profileObj.givenName,
       lastname: response.profileObj.familyName,
       email: response.profileObj.email,
       password:response.googleId + "aB",
-      google:true,
       from:"Google"
     }
 
@@ -87,7 +86,7 @@ export default function SignUp() {
   }
  }
     
-  } */
+  }  */
 
   /* SignUp con Google end */
 
@@ -120,7 +119,7 @@ export default function SignUp() {
       }else if(data.success===true){
           Swal.fire(
           'Good job!',
-          'Registered user with Facebook!',
+          'Registered user with Facebook! <br /> I update the singin, now you can do it with Facebook',
           'success'
           )
       console.log(data)
@@ -155,7 +154,7 @@ export default function SignUp() {
   }else if(data.success===true){
     Swal.fire(
       'Good job!',
-      'Registered user with SingIn!',
+      'Registered user with SingIn!, <br /> We have sent an e-mail to verify your e-mail address',
       'success'
     )
     console.log(data)
@@ -251,12 +250,14 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
-        {/* <GoogleLogin
-          clientId="aqui va la clave de la api"
+        <br />
+        { /* <GoogleLogin
+          clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
           buttonText="SingUp with Google Account"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
-  cookiePolicy={'single_host_origin'}/>, */}
+          cookiePolicy={'single_host_origin'}/>
+  <br /> */}
         <FacebookLogin
           appId="1062880977629069"
           autoLoad={false}

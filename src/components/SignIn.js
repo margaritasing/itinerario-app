@@ -57,10 +57,10 @@ export default function SignIn() {
   const classes = useStyles();
 const [{ user }, dispatch] = useStateValue()
 
-const responseGoogle = (response) => {
+/* const responseGoogle = (response) => {
   console.log(response);
   
-}
+} */
 
 const responseFacebook = async (response) => {
   console.log(response);
@@ -93,34 +93,22 @@ function displayMessages(data) {
 }
   
 }
-
-
-
     async function loginUser(event) {
         event.preventDefault() // previene el comportamiento por defecto del botón submit, que es limpiar el formulario
-        console.log(event.target[0].value)
-        console.log(event.target[2].value)
-        const userData = {
+           const userData = {
             email: event.target[0].value,
             password: event.target[2].value,
         }
-
 
         await axios.post("http://localhost:4000/api/signin",{userData} )
             .then(response =>
 
                 displayMessages(response.data),
-
-
             )
-
-          
-
-
         function displayMessages(data) {
           console.log(data)
             if (!data.success) {
-                console.log(alert(data.error))
+                console.log(data.error)
             }
             else { console.log(data.response) }
             //else { console.log(swal(data.response)) }
@@ -131,7 +119,7 @@ function displayMessages(data) {
             })
             
         }
-        console.log(user)
+       
     }
 
 
@@ -197,20 +185,25 @@ function displayMessages(data) {
           
         </form>   
       </div>
-      <GoogleLogin
-      clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
-      buttonText="Login"
-      onSuccess={responseGoogle}
-      onFailure={responseGoogle}
-      cookiePolicy={'single_host_origin'}
-    />,
-    <FacebookLogin
-          appId="1062880977629069"
-          autoLoad={false}
-          fields="name,email,picture"        
-          callback={responseFacebook}
-           />
-      <Box mt={8}>
+      <br />
+     {/* <div className="google" style={{marginLeft:"50px"}}>
+     <GoogleLogin
+     clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
+     buttonText="SingIn with Google Account"
+     onSuccess={responseGoogle}
+     onFailure={responseGoogle}
+     cookiePolicy={'single_host_origin'}
+   />
+  </div> */}
+   <div className="facebook" style={{marginTop: "10px", marginLeft:"65px"}}>
+   <FacebookLogin
+         appId="1062880977629069"
+         autoLoad={false}
+         fields="name,email,picture"        
+         callback={responseFacebook}
+          />    
+   </div>     
+      <Box mt={3}>
         <Copyright />
       </Box>
     </Container>

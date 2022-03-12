@@ -9,7 +9,7 @@ const usersSchema = new mongoose.Schema({
      uniqueText:{ type: String, require: true},
      emailVerificado:{type:Boolean,require:true},
      connected: {type: Boolean, require: true},
-    /*  google:{type: Boolean, require: true}, */
+     google:{type: Boolean, require: true},
      from:{ type: String, require: true},
      
 })

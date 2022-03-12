@@ -78,7 +78,7 @@ const usersControllers = {
 
                   /* Google start if */                     
              
-               /*  if(google){                
+               /*   if(google){                
                     const passwordHash = bcryptjs.hashSync(password, 10)
                     usuarioExiste.password= passwordHash;
                     usuarioExiste.emailVerificado= true;
@@ -91,7 +91,7 @@ const usersControllers = {
                 }else{
                     res.json({success:false, from:"SignUp", response:"Este email ya esta en uso, por favor realiza singIN"})                   
 
-                } */
+                }*/
                  /*google end if */
                 
 
@@ -110,7 +110,6 @@ const usersControllers = {
                     uniqueText, //busca la coincidencia del texto
                     emailVerificado,
                     connected:false,
-                  /*   google, */
                     from,
                 })
 
@@ -139,7 +138,7 @@ const usersControllers = {
                 /* Facebook end else */
 
                 /* Google start else */
-               /*  if(google){
+              /*  if(google){
                     newUser.emailVerificado= true;
                     newUser.google=true,
                     newUser.connected= false,
@@ -157,7 +156,7 @@ const usersControllers = {
                     await newUser.save()
                     await sendEmail(email, uniqueText)
                     res.json({ success:true, from:"SingUp", response: "We have sent an e-mail to verify your e-mail address" , data:{newUser}})
-                } *//* google start else */
+                } *//* google end else */
             }/* final del else de usuario existe */
         }/* final de try */
         catch (error) { res.json({ success: "falseVAL",from:"SingUp",  response:"EL correo ya esta en uso", error: error }) }
