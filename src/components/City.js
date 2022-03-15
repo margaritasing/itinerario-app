@@ -9,6 +9,7 @@ import Coment from "./Coment";
 import { useParams } from "react-router-dom";
 
 
+
 const City = () => {
 
   const [{cities,itineraries}, dispatch]=useStateValue()
@@ -31,7 +32,7 @@ const City = () => {
       <HeroCard  itinerary={citySelecter}/>
       <CardExtenden itinerary={citySelecter} />
       <CardInfo itinerary={itinerarySelecter} />
-      <Coment />
+     
     </div>
   );
 };

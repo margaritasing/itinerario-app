@@ -10,16 +10,16 @@ const Opinion = () =>{
     return(
         <Section>
         <figure className="snip1314"><img src="https://w3travelsecuritycl.s3.amazonaws.com/notas/obelisco-buenos-aires.jpg" alt="sample13"/>
-        <div className="border one">
-          <div></div>
-        </div>
-        <div className="border two">
-          <div></div>
-        </div>
-        <figcaption>
-          <blockquote>It is a beautiful city, nice to travel any month of the year.</blockquote>
-          <h5>Indigo Violet<span>LittleSnippets</span></h5>
-        </figcaption><a href="#"></a>
+          <div className="border one">
+              <div></div>
+          </div>
+          <div className="border two">
+             <div></div>
+          </div>
+          <figcaption>
+             <blockquote>It is a beautiful city, nice to travel any month of the year.</blockquote>
+             <h5>Indigo Violet<span>LittleSnippets</span></h5>
+          </figcaption><a href="#"></a>
       </figure>
       <figure className="snip1314 hover"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Maracaibo_panoramica_avenida_Cecilio_Acosta_cuted_%28cropped%29.jpg" alt="sample96"/>
         <div className="border one">
@@ -199,7 +199,7 @@ const Section = styled.section`
   @media screen and (min-width: 280px) and (max-width: 720px) {
     .snip1314 {        
         margin-top:5px;
-        margin-left:0;
+        margin-left:25px;
        
       }
     
