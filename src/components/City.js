@@ -31,8 +31,7 @@ const City = () => {
     <div className="city">
       <HeroCard  itinerary={citySelecter}/>
       <CardExtenden itinerary={citySelecter} />
-      <CardInfo itinerary={itinerarySelecter} />
-     
+      <CardInfo itinerary={itinerarySelecter} />     
     </div>
   );
 };

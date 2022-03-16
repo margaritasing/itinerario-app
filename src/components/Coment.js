@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useStateValue } from "../reducer/StateProvider";
 
 
 const Coment = (props) => {
 
+    const [ {user}, dispatch ] = useStateValue()
+
    const submitComent=(event)=>{
        event.preventDefault()
        const dataComents={
-           itynerary:props.itinerary,
-           message:event.target[0].value
+           itinerario:props.itinerary,
+           message:event.target[0].value,
+           user:user.datosUser.id
         }
         
         console.log(dataComents)

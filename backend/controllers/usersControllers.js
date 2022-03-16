@@ -182,6 +182,7 @@ const usersControllers = {
                             firstname: usuario.firstname,
                             lastname: usuario.lastname,
                             email: usuario.email,
+                            id:usuario._id
                         }
                         usuario.connected=true
                         await usuario.save()

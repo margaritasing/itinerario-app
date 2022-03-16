@@ -1,8 +1,14 @@
 const Router = require("express").Router();
+
+const comentControllers = require("../controllers/comentsController");
+const { cargarComentarios } = comentControllers;
+
 const citiesController = require("../controllers/datosControllers")
 const {ObtenerCiudades, ObtenerItynerarios} = citiesController // desestructuración del controlador de Ciudades
+
 const usersControllers = require ("../controllers/usersControllers")
 const{nuevoUsuario, verifyEmail, accesoUsuario, cerrarCesion} = usersControllers
+
 const validator = require("../controllers/validator")
 
 Router.route("/datos") // "datos" parte de la url de la consulta
@@ -19,10 +25,13 @@ Router.route("/verify/:uniqueText")
 .get(verifyEmail)
 
 Router.route("/signIn")
-    .post(accesoUsuario)
+.post(accesoUsuario)
 
 Router.route("/signOut")
-    .post(cerrarCesion)
+.post(cerrarCesion)
+
+Router.route("/coments")
+.post(cargarComentarios)
 
 
 module.exports = Router
