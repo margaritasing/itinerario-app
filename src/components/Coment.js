@@ -1,21 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import { useStateValue } from "../reducer/StateProvider";
+import axios from 'axios';
 
 
 const Coment = (props) => {
 
     const [ {user}, dispatch ] = useStateValue()
 
-   const submitComent=(event)=>{
+   const submitComent= async (event)=>{
        event.preventDefault()
        const dataComents={
            itinerario:props.itinerary,
-           message:event.target[0].value,
+           coment:event.target[0].value,
            user:user.datosUser.id
         }
         
         console.log(dataComents)
+
+        await axios.post("http://localhost:4000/api/coments",{dataComents} )
+            
 
    }
 
