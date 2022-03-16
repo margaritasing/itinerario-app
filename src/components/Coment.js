@@ -12,7 +12,7 @@ const Coment = (props) => {
        event.preventDefault()
        const dataComents={
            itinerario:props.itinerary,
-           coment:event.target[0].value,
+           message:event.target[0].value,
            user:user.datosUser.id
         }
         
