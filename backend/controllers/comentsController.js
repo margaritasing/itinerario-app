@@ -4,22 +4,32 @@ const crypto =require("crypto");
 const Comments = require("../models/coments.js")
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { response } = require("express");
 
 
 
 const comentControllers={
     cargarComentarios: async (req, res) => {    
-        let { itinerario, coment, user } = req.body.dataComents // destructuring
+        let { itinerario, message, user } = req.body.dataComents // destructuring
         console.log(req.body.dataComents)
 
         new Comments({
             itinerario:itinerario,
             user:user,
             coment:message,
-        }).save()
-        .then(response => res.json({response})) //guardamos los datos de acuerdo con el modelo establecido
+        }).save()  //guardamos los datos de acuerdo con el modelo establecido
 
-       
+        let comentario      
+
+        try {
+            comentario = await Comments.find({itinerario:itinerario}).populate("user")
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+
+        res.json({success:true, response:{comentario}})//traemos esos datos , de los comentarios hechos por ese usuario       
     }
 }
 

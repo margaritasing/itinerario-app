@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { useStateValue } from "../reducer/StateProvider";
 import axios from 'axios';
@@ -7,6 +7,7 @@ import axios from 'axios';
 const Coment = (props) => {
 
     const [ {user}, dispatch ] = useStateValue()
+    const [comment, setComment] = useState()
 
    const submitComent= async (event)=>{
        event.preventDefault()
@@ -18,7 +19,10 @@ const Coment = (props) => {
         
         console.log(dataComents)
 
-        await axios.post("http://localhost:4000/api/coments",{dataComents} )
+
+
+        await axios.post("http://localhost:4000/api/coments",{dataComents})
+        .then(response => setComment(response.data.response.comentario))
             
 
    }
@@ -28,23 +32,28 @@ const Coment = (props) => {
         <Section>
 
         <div className="coment">
-
-        <div className="input-group input-group-lg formato ">
+        {comment?.map(item =>   
+           /*  <div className="input-group input-group-lg formato ">                
+                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"></input>
+            </div>  */           
+            <div key={item.id}>
+            <p>{item.user.firstname}</p>
+            <p>{item.coment}</p>            
+            </div>
+            )}
+             
             
-            <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"></input>
-        </div>
-
-        <form onSubmit={submitComent}>        
-         
+            <form onSubmit={submitComent}>        
+            
             <div className="mb-3">
                 <label htmlFor="disabledTextInput" className="form-label"></label>
                 <input type="text"  className="form-control w-100" placeholder="Coments" />
             </div>                    
-          <button type="submit" className="btn btn-primary">Submit</button>       
-      </form>
-               
-        <p className="fas"><span className="me-2"><i className="fas fa-heart"></i></span>3</p>         
-        </div>
+                <button type="submit" className="btn btn-primary">Submit</button>       
+            </form>
+            
+            <p className="fas"><span className="me-2"><i className="fas fa-heart"></i></span>3</p>         
+            </div>
   
         
         </Section>
