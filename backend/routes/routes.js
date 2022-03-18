@@ -1,7 +1,9 @@
 const Router = require("express").Router();
 
+
+
 const comentControllers = require("../controllers/comentsController");
-const { cargarComentarios } = comentControllers;
+const { cargarComentarios, obtenerComentarios, borrarComentario, editarComentario } = comentControllers;
 
 const citiesController = require("../controllers/datosControllers")
 const {ObtenerCiudades, ObtenerItynerarios} = citiesController // desestructuración del controlador de Ciudades
@@ -32,6 +34,11 @@ Router.route("/signOut")
 
 Router.route("/coments")
 .post(cargarComentarios)
+
+Router.route("/coments/:id")
+.get(obtenerComentarios)
+.delete(borrarComentario)
+.put(editarComentario)
 
 
 module.exports = Router

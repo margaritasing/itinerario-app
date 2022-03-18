@@ -25,11 +25,52 @@ const comentControllers={
             comentario = await Comments.find({itinerario:itinerario}).populate("user")
             
         } catch (error) {
-            console.log(error)
-            
+            console.log(error)           
         }
-
         res.json({success:true, response:{comentario}})//traemos esos datos , de los comentarios hechos por ese usuario       
+    },
+
+    obtenerComentarios: async(req, res)=>{
+        let id = req.params.id;
+        
+        let comentario      
+
+        try {
+            comentario = await Comments.find({itinerario:id}).populate("user")
+            console.log(comentario)
+            
+        } catch (error) {
+            console.log(error)           
+        }
+        res.json({success:true, response:{comentario}})//traemos esos datos , de los comentarios hechos por ese usuario 
+    },
+
+    borrarComentario: async(req, res) =>{
+        let id = req.params.id;
+        
+        let comentario  
+        try {
+            comentario = await Comments.findOneAndDelete({_id:id})
+            
+        } catch (error) {
+            console.log(error)           
+        }
+        res.json({success:true, response:{comentario}})
+    },
+
+    editarComentario: async(req, res) =>{
+        console.log(req.body.data)
+        let id = req.params.id; 
+        let newComent = req.body.data
+        
+        let comentario  
+        try {
+            comentario = await Comments.findOneAndUpdate({_id:id}, { coment:newComent}, {new:true} )
+            
+        } catch (error) {
+            console.log(error)           
+        }
+        res.json({success:true, response:{comentario}, mesagge:"Se ha modificado tu comentario"})
     }
 }
 

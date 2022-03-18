@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useStateValue } from "../reducer/StateProvider";
 import axios from 'axios';
+
 
 
 const Coment = (props) => {
@@ -9,36 +10,85 @@ const Coment = (props) => {
     const [ {user}, dispatch ] = useStateValue()
     const [comment, setComment] = useState()
 
+   
+
+    const [reload, setReload] = useState(false)
+
+    const [cambio, setCambio] = useState()
+
    const submitComent= async (event)=>{
        event.preventDefault()
        const dataComents={
            itinerario:props.itinerary,
            message:event.target[0].value,
            user:user.datosUser.id
+        }        
+        console.log(dataComents)
+        await axios.post("http://localhost:4000/api/coments",{dataComents})
+        .then(response => 
+            setComment(response.data.response.comentario))
+            setReload(!reload)
+        }
+
+    
+        
+        
+        useEffect(() => {
+            let id= props.itinerary
+           
+      
+          axios.get(`http://localhost:4000/api/coments/${id}`)
+            .then(response =>{
+                setComment(response.data.response.comentario)
+                
+            })        
+            
+            
+        }, [reload])//quito el reload y se ven los comentarios
+        
+        const borrarComentarios = (id) =>{
+            
+            axios.delete(`http://localhost:4000/api/coments/${id}`)
+            setReload(!reload)
         }
         
-        console.log(dataComents)
-
-
-
-        await axios.post("http://localhost:4000/api/coments",{dataComents})
-        .then(response => setComment(response.data.response.comentario))
+        const handleChange = (event) =>{
+            setCambio(event.target.value)
             
-
-   }
-
+        }
+        
+        const editar = (id) =>{
+            let data=cambio
+            console.log(data)
+            console.log(id)
+            axios.put(`http://localhost:4000/api/coments/${id}`,{data})
+            .then(response => console.log(response))
+            setReload(!reload)
+        }
+        
+     
+        console.log(comment)
+        
     return(
 
         <Section>
 
         <div className="coment">
-        {comment?.map(item =>   
+
+        {comment?.map(item =>
+          
+
            /*  <div className="input-group input-group-lg formato ">                
                 <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"></input>
-            </div>  */           
-            <div key={item.id}>
-            <p>{item.user.firstname}</p>
-            <p>{item.coment}</p>            
+            </div>  */
+
+            <div key={item._id}>
+             <p>{item.user.firstname}</p>
+            <div>
+                 <input style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%"}}  onKeyUp={handleChange} defaultValue={item.coment}></input>             
+            </div>   
+            <button type="button" className="btn btn-danger my-2 mx-1" onClick={()=> borrarComentarios(item._id)} >Delete</button>  
+            <button type="button" className="btn btn-warning mx-3" onClick={()=> editar(item._id)}>Editar</button>   
             </div>
             )}
              
@@ -52,7 +102,7 @@ const Coment = (props) => {
                 <button type="submit" className="btn btn-primary">Submit</button>       
             </form>
             
-            <p className="fas"><span className="me-2"><i className="fas fa-heart"></i></span>3</p>         
+                <p className="fas"><span className="me-2"><i className="fas fa-heart"></i></span>3</p>         
             </div>
   
         

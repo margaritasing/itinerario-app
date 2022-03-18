@@ -23,7 +23,7 @@ const FormImg = () => {
      <Section>
          <form className="offset-md-5 my-3">
             <label className=" mt-3">
-            <input  class=" input-search form-control form-control-lg" type="text" placeholder="Search" onChange={inputSearch}  />
+            <input  className=" input-search form-control form-control-lg" type="text" placeholder="Search" onChange={inputSearch}  />
             </label>        
         </form>    
      </Section>
