@@ -19,6 +19,7 @@ import FacebookLogin from 'react-facebook-login';
 import { useStateValue } from '../reducer/StateProvider';
 import { actionType } from '../reducer/reducer';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 function Copyright() {
   return (
@@ -69,9 +70,7 @@ const responseFacebook = async (response) => {
     email: response.email,
     password: response.id +"aB",
 }
-
-
-await axios.post("http://localhost:4000/api/signin",{userData} )
+ await axios.post("http://localhost:4000/api/signin",{userData} )
     .then(response =>
 
         displayMessages(response.data),
@@ -80,16 +79,20 @@ await axios.post("http://localhost:4000/api/signin",{userData} )
 function displayMessages(data) {
   console.log(data)
     if (!data.success) {
+      
+      localStorage.setItem("token", data.response.token) 
         console.log((data.error))
+        
     }
-    else { console.log(data.response) }
-    //else { console.log(swal(data.response)) }
-
+    else { 
+      
+      localStorage.setItem("token", data.response.token)              
+      console.log(data.response)    
+    }
     dispatch({
         type: actionType.USER,
         user: data.response
-    })
-    
+    })    
 }
   
 }
@@ -110,7 +113,10 @@ function displayMessages(data) {
             if (!data.success) {
                 console.log(data.error)
             }
-            else { console.log(data.response) }
+            else {
+              localStorage.setItem("token", data.response.token)
+               console.log(data.response) 
+              }
             //else { console.log(swal(data.response)) }
 
             dispatch({

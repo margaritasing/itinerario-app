@@ -67,7 +67,7 @@ const Coment = (props) => {
         }
         
      
-        console.log(comment)
+      
         
     return(
 

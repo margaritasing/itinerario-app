@@ -12,8 +12,9 @@ function Register() {
         console.log(email)
         await axios.post("http://localhost:4000/api/signOut", {email})
         .then(response =>
-
-            console.log(response)
+             console.log(response),
+            localStorage.removeItem("token")
+          
 
         )
 
