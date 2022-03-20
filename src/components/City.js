@@ -25,7 +25,7 @@ const City = () => {
     props.itinerary.filter(city => city.city == citySelected[0].name) */
   
 
- 
+  
 
   return (
     <div className="city">

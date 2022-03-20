@@ -13,8 +13,8 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top" style={{ backgroundColor:"#d0d8ff",fontFamily:"Satisfy, cursive", fontSize:"25px" }}>
       <div className="container-fluid">
-        <a className="navbar-brand ms-4" href="/#" style={{color:"#4361ee", fontSize:"35px"}}>
-          <img className="img-top ms-4 me-4" src={Imagen} alt="..." />
+        <a className="navbar-brand ms-3" href="/#" style={{color:"#4361ee", fontSize:"35px"}}>
+          <img className="img-top ms-3 me-1" src={Imagen} alt="..." />
           My Itinerary
         </a>
         <button

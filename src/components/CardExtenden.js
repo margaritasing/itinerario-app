@@ -20,7 +20,7 @@ const CardExtenden = (props) =>{
 
                     <div className="col-md-6">
                     <img className="img-fluid rounded-start" src={data.image} alt="..."></img>
-                    </div>
+                    </div> 
                     <div className="col-md-6">
                     <div className="card-body">
                     <ul className="list-group list-group-horizontal">

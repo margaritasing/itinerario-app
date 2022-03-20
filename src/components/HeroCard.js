@@ -4,46 +4,47 @@ import styled from "styled-components";
 import homeImage from "../img/singapur.jpg";
 
 
-export default function HeroCard() {
- 
+export default function HeroCard(props) {
+  const city=props.itinerary
 
     
 
   return (
-    <Section id="HeroCard">
-    <div className="background">
-    <img src={homeImage} alt="" />
-    </div>
-  
-    <div className="content">
-  
-        <div className="title">
-          <h1>Itinerary</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-              natus, enim ipsam magnam odit deserunt itaque? Minima earum velit
-              tenetur!
-            </p>
-        </div>     
-        <div className="search">
-            <div className="container">
-              <label htmlFor="">Where you want to go</label>
-              <input type="text" placeholder="Search Your location" />
-            </div>
-          <div className="container">
-              <label htmlFor="">Check-in</label>
-              <input type="date" />
-          </div>
-          <div className="container">
-              <label htmlFor="">Check-out</label>
-              <input type="date" />
-          </div>
-          <Link className="nav-link" aria-current="page" to="/cities">
-           <button>Reserve</button>
-          </Link>
-        
-        </div>
+    <Section id="HeroCard"> 
+    { city.map(data => 
+      <>
+      <div className="background">
+          <img src={data.image} alt="" />
       </div>
+      <div className="content">      
+        
+            <div className="title">
+              <h1>{data.name}</h1>
+                <p>{data.description}</p>
+            </div>     
+            <div className="search">
+                <div className="container">
+                  <label htmlFor="">Where you want to go</label>
+                  <input type="text" placeholder="Search Your location" />
+                </div>
+              <div className="container">
+                  <label htmlFor="">Check-in</label>
+                  <input type="date" />
+              </div>
+              <div className="container">
+                  <label htmlFor="">Check-out</label>
+                  <input type="date" />
+              </div>
+              <Link className="nav-link" aria-current="page" to="/cities">
+               <button>Reserve</button>
+              </Link>
+            
+            </div>
+          </div>
+          </>
+    
+    )}   
+
     </Section>
   );
 }
@@ -57,6 +58,7 @@ const Section = styled.section`
     height: 100%;
     img {
       width: 100%;
+      height:600px;
       filter: brightness(80%);
     }
   }
