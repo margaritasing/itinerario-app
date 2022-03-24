@@ -11,7 +11,7 @@ module.exports = passport.use(new jwtStrategy({
     
 }, (jwt_payload, done)=> {
     console.log(jwt_payload)
-    User.findOne({_id:jwt_payload.id})
+    User.findOne({_id:jwt_payload.id}) 
     .then(user =>{
         if(user){
             return  done(null, user)            

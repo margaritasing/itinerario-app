@@ -8,6 +8,7 @@ import { useStateValue } from "./reducer/StateProvider";
 const LikeComen = (props) => {
   console.log(props)
   const [{user}, dispatch]=useStateValue()
+  const [likes, setLikes] =useState(props.likes)
 
   const likeDislike =  async () =>{
     console.log(user)
@@ -17,9 +18,11 @@ const LikeComen = (props) => {
         'Authorization':'Bearer '+ token //espacio ya aplicado
       }
     })
-    .then(response=> console.log(response))
-    
+    .then(response=> setLikes(response.data.response))    
   }
+  
+
+  /* const colorCorazon=likes?.includes(user.datosUser.id)? 'fa-solid fa-circle-heart':"fas fa-heart" */
   return (
     <Section>
         <div className='content-usuario'>
@@ -30,8 +33,8 @@ const LikeComen = (props) => {
               </div>
 
               <div className='like'>
-                <button className='btn btn-like' onClick={likeDislike}><i className='far fa-heart'></i></button>
-                <span>{props.likes.length}</span>        
+                <button className='btn btn-like' onClick={likeDislike}><i className="fas fa-heart"></i></button>
+                <span>{likes.length}</span>        
               </div>
       
         </div>   
