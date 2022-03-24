@@ -23,6 +23,7 @@ import Top from "./components/Top";
 
 import SignOut from "./components/SignOut";
 
+
 function App() {
   const [{cities, itineraries}, dispatch]=useStateValue()
 
@@ -42,16 +43,28 @@ function App() {
       
      });
   })
+
+      if(localStorage.getItem("token") !== null){
+        const token=localStorage.getItem("token")
+        axios.get("http://localhost:4000/api/signInToken", {
+          headers:{
+            'Authorization':'Bearer '+ token //espacio ya aplicado
+          }
+        })
+        .then(user=>{
+        if(user.data.success){
+          dispatch({
+            type:actionType.USER,
+            user:user.data
+          })
+        }else{
+          localStorage.removeItem("token")
+        }
+      })
+      }
   },[])
 
-  /* const data = []; 
-  axios.get("http://localhost:4000/api/datos").then((response) => {
-    data.push(...response.data.response.cities);
-  });
-  const itinerary = [];
-  axios.get("http://localhost:4000/api/itinerary").then((response) => {
-    itinerary.push(...response.data.response.itinerary);
-  }); */
+ 
 
 
   return (

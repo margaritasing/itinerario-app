@@ -2,21 +2,29 @@ import React from "react";
 import { Link as LinkRouter } from "react-router-dom";
 import { useStateValue } from '../reducer/StateProvider';
 import axios from 'axios';
+import { actionType } from "../reducer/reducer";
 
 function Register() {
 
   const [{ user }, dispatch] = useStateValue()
 
-    async function cerrarCesion () {
+    async function cerrarCesion() {
         const email = user.datosUser.email
         console.log(email)
         await axios.post("http://localhost:4000/api/signOut", {email})
-        .then(response =>
-             console.log(response),
-            localStorage.removeItem("token")
+        .then(response =>{
+          console.log(response.response)            
+            if(response.data.success) {
+              localStorage.removeItem("token")
+              /* dispatch({
+                type:actionType.USER,
+                user:null
+              }) */
+              
+            }
           
 
-        )
+           })
 
     }
 

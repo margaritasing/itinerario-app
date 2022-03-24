@@ -7,6 +7,7 @@ import CardInfo from "./CardInfo";
 import CardExtenden from "./CardExtenden";
 import Coment from "./Coment";
 import { useParams } from "react-router-dom";
+import LikeComen from "../LikeComen";
 
 
 
@@ -31,7 +32,8 @@ const City = () => {
     <div className="city">
       <HeroCard  itinerary={citySelecter}/>
       <CardExtenden itinerary={citySelecter} />
-      <CardInfo itinerary={itinerarySelecter} />     
+      <CardInfo itinerary={itinerarySelecter} /> 
+      <LikeComen/>    
     </div>
   );
 };

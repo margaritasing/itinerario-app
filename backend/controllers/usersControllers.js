@@ -211,10 +211,23 @@ const usersControllers = {
         await user.save()
         res.json({success:true, response:"cesión cerrada"})
 
+    },
+
+    verificarToken: async(req, res)=>{
+        if(!req.error){
+            res.json({success:true, 
+                datosUser:{              
+                    firstname:req.user.firstname, 
+                    lastname:req.user.lastname,
+                    email:req.user.email,
+                    id:req.user.id}, 
+                    response:"Welcome Back Again" + req.user.firstname })
+        }else{
+            res.json({success:false, response:"Please again SingIn"})
+        }
     }
-}
 
-
+};
 
 
 module.exports = usersControllers
