@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import LikeComen from "../LikeComen";
 import Coment from "./Coment";
 
 
 const CardInfo = (props) => {
- 
 
-  
-  
+  console.log(props.itinerary)
  
 
   return (
@@ -24,7 +23,8 @@ const CardInfo = (props) => {
                   <p className="card-text"><small className="text-muted">{data.price}</small></p>
               </div>
               <div className="my-3">
-               <Coment itinerary={data._id} />           
+               <Coment itinerary={data._id} />  
+               <LikeComen likes={data.likes} id={data._id}/>         
               </div>   
               </div>
               )}     

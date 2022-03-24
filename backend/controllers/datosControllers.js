@@ -41,7 +41,7 @@ const citiesController = {
 
     likeDislik: async (req,res) => {
         const id = req.params.id
-        const user = req.body.user
+        const user = req.user.id
         let itinerary
 
         try {           
@@ -59,7 +59,7 @@ const citiesController = {
             
         } catch (error) {
             error = err
-            response.json({success:false, response:error})                     
+            response.json({success:false, response:err})                     
         }
        
 

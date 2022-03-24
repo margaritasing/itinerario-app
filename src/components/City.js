@@ -20,10 +20,7 @@ const City = () => {
  
 
 
- /*  const { id } = useParams();
-  const citySelected = props.data.filter(city => city._id == id); 
-  const cityItinerary = 
-    props.itinerary.filter(city => city.city == citySelected[0].name) */
+
   
 
   
@@ -32,8 +29,7 @@ const City = () => {
     <div className="city">
       <HeroCard  itinerary={citySelecter}/>
       <CardExtenden itinerary={citySelecter} />
-      <CardInfo itinerary={itinerarySelecter} /> 
-      <LikeComen/>    
+      <CardInfo itinerary={itinerarySelecter} />      
     </div>
   );
 };
