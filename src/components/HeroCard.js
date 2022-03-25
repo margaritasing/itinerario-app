@@ -11,9 +11,9 @@ export default function HeroCard(props) {
 
   return (
     <Section id="HeroCard"> 
-    { city.map(data => 
-      <>
-      <div className="background">
+    { city.map((data, index)=> 
+      <div key={index}>
+      <div className="background" >
           <img src={data.image} alt="" />
       </div>
       <div className="content">      
@@ -41,7 +41,7 @@ export default function HeroCard(props) {
             
             </div>
           </div>
-          </>
+          </div>
     
     )}   
 

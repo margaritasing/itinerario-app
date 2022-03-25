@@ -8,11 +8,11 @@ import App from './App';
 
 
 ReactDOM.render(
-  <React.StrictMode>
+ 
    <StateProvider inicialState={inicialState} reducer ={reducer}> 
      <App />
-    </StateProvider>
-  </React.StrictMode>,
+    </StateProvider>,
+ 
   document.getElementById('root')
 );
 

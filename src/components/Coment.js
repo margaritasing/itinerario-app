@@ -46,28 +46,26 @@ const Coment = (props) => {
             
         }, [reload])//quito el reload y se ven los comentarios
         
-        const borrarComentarios = (id) =>{
+        const borrarComentarios =async(id) =>{
             
-            axios.delete(`http://localhost:4000/api/coments/${id}`)
+          await  axios.delete(`http://localhost:4000/api/coments/${id}`)
             setReload(!reload)
         }
         
         const handleChange = (event) =>{
-            setCambio(event.target.value)
+            setCambio(event.currentTarget.textContent)
             
         }
         
-        const editar = (id) =>{
-            let data=cambio
-            console.log(data)
-            console.log(id)
-            axios.put(`http://localhost:4000/api/coments/${id}`,{data})
+        const editar = async(id) =>{
+            let data=cambio           
+          await  axios.put(`http://localhost:4000/api/coments/${id}`,{data})
             .then(response => console.log(response))
             setReload(!reload)
-        }
-        
+        }      
      
       
+     
         
     return(
 
@@ -76,31 +74,45 @@ const Coment = (props) => {
         <div className="coment">
 
         {comment?.map(item =>
-          
-
-           /*  <div className="input-group input-group-lg formato ">                
-                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"></input>
-            </div>  */
-
-            <div key={item._id}>
+             <div key={item._id}>
              <p>{item.user.firstname}</p>
-            <div>
-                 <input style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%"}}  onKeyUp={handleChange} defaultValue={item.coment}></input>             
-            </div>   
+             {item.user._id === user?.datosUser.id ?
+              <div>
+
+                <div>
+              
+                     <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
+                     >{item.coment}</div>             
+                </div>
+
             <button type="button" className="btn btn-danger my-2 mx-1" onClick={()=> borrarComentarios(item._id)} >Delete</button>  
-            <button type="button" className="btn btn-warning mx-3" onClick={()=> editar(item._id)}>Editar</button>   
+            <button type="button" className="btn btn-warning mx-3" onClick={()=> editar(item._id)}>Editar</button>             
+            
+            </div>
+            :
+            <div>
+                <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%"}}>{item.coment}</div>             
+             </div>
+
+        }
             </div>
             )}
              
-            
-            <form onSubmit={submitComent}>        
-            
-            <div className="mb-3">
-                <label htmlFor="disabledTextInput" className="form-label"></label>
-                <input type="text"  className="form-control w-100" placeholder="Coments" />
-            </div>                    
-                <button type="submit" className="btn btn-primary">Submit</button>       
-            </form>
+          {user?
+           <div className="formulario">
+                <form onSubmit={submitComent}>        
+                    
+                <div className="mb-3">
+                    <label htmlFor="disabledTextInput" className="form-label"></label>
+                    <input type="text"  className="form-control w-100" placeholder="Coments" />
+                </div>                    
+                    <button type="submit" className="btn btn-primary">Submit</button>       
+                </form>             
+           </div>
+           :
+           <h1>Debes Iniciar seccion para dejarnos tu comentario</h1>
+          }
+
             
                         
             </div>

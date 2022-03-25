@@ -206,7 +206,7 @@ const usersControllers = {
 
         const user = await User.findOne({email})
 
-        user.connected=false
+       /*  user.connected=false */
 
         await user.save()
         res.json({success:true, response:"cesión cerrada"})

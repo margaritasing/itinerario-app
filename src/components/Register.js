@@ -16,10 +16,10 @@ function Register() {
           console.log(response.response)            
             if(response.data.success) {
               localStorage.removeItem("token")
-              /* dispatch({
+              dispatch({
                 type:actionType.USER,
                 user:null
-              }) */
+              })
               
             }
           

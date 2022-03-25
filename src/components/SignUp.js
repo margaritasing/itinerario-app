@@ -108,7 +108,7 @@ export default function SignUp() {
 
 
       displayMessages(response.data)
-      )
+      ) 
 
       
       function displayMessages(data){
@@ -136,8 +136,7 @@ export default function SignUp() {
                           lastname:event.target[2].value,
                           email:event.target[4].value,
                           password:event.target[6].value,
-                          from:"SignUp"
-                        
+                          from:"SignUp"                        
                         }  
  
    await axios.post("http://localhost:4000/api/signup",{NuevoUsuario} )

@@ -20,20 +20,23 @@ const LikeComen = (props) => {
     })
     .then(response=> setLikes(response.data.response))    
   }
+
+ 
+  
+  let colorCorazon=likes?.includes(user?.datosUser.id)? 'fas fa-heart':"fas fa-heart-circle"   
   
 
-  /* const colorCorazon=likes?.includes(user.datosUser.id)? 'fa-solid fa-circle-heart':"fas fa-heart" */
   return (
     <Section>
         <div className='content-usuario'>
 
               <div className='avatar'>
                 <img src={avatar} alt=".." />
-                <p className='user'>User</p>        
+                <p className='user'>{user?.datosUser.firstname}</p>        
               </div>
 
               <div className='like'>
-                <button className='btn btn-like' onClick={likeDislike}><i className="fas fa-heart"></i></button>
+                <button className='btn btn-like' onClick={likeDislike}><i className={colorCorazon}></i></button>
                 <span>{likes.length}</span>        
               </div>
       

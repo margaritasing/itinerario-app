@@ -78,14 +78,12 @@ const responseFacebook = async (response) => {
   
 function displayMessages(data) {
   console.log(data)
-    if (!data.success) {
-      
+    if (!data.success) {      
       localStorage.setItem("token", data.response.token) 
         console.log((data.error))
         
     }
-    else { 
-      
+    else {       
       localStorage.setItem("token", data.response.token)              
       console.log(data.response)    
     }
