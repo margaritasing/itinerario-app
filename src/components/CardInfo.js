@@ -11,22 +11,24 @@ const CardInfo = (props) => {
 
   return (
        <Section>                                
-           <div className="card-group cardinfo ">
+           <div className="cardinfo">
            <div className="container">
            <div className="row">
            {props.itinerary.map( data=> 
-              <div className="card col-lg-3  my-3 mx-2" key={data._id}>                          
-              <img src={data.image} className="card-img-top mt-2" alt="..."></img>         
+              <div className="card col-md-9 my-4" key={data._id}>  
+              <div className="imagen">
+              <img src={data.image} className="img-fluid rounded-start" alt="..." />                   
+              </div>                        
               <div className="card-body">
-                  <h5 className="card-title">{data.name}</h5>
+              <h5 className="card-title">{data.name}</h5>
                   <p className="card-text">{data.description}</p>
                   <p className="card-text"><small className="text-muted">{data.price}</small></p>
               </div>
               <div className="my-3">
                <Coment itinerary={data._id} />  
                <LikeComen likes={data.likes} id={data._id}/>         
-              </div>   
-              </div>
+               </div>   
+               </div>
               )}     
               
            
@@ -41,27 +43,47 @@ const CardInfo = (props) => {
 
 const Section = styled.section`
   .cardinfo {
-    margin: 0 0 20px 240px
-       
-  }  
+    margin-left:280px;
+    margin-top:30px;
+    
+  } 
+
+  .card{
+    display:flex;
+ 
+  }
+
+  .card-body{
+     
+    
+   
+  }
 
   h5 {
-    text-align: center;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: #9ad0ec;
+    
+
+   
+  
+    
+  }
+
+  p{
+   
   }
  
   img {
-    width: 100%;
-    height: 200px;
+    width:100%;
+    height:300px;
+    margin-top:10px; 
+      
     
   }
 
-  .card {
-    border-radius: 15px;
-    
+  .card-img{
+   
   }
+
+  
   @media screen and (min-width: 280px) and (max-width: 720px) {
     .cardinfo {
     

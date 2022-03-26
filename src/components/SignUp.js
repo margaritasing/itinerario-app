@@ -96,6 +96,7 @@ export default function SignUp() {
     console.log(response);
 
     const NuevoUsuario = {
+                        
                         email:response.email,
                         firstname:response.name,
                         lastname:"facebook",            
@@ -132,12 +133,15 @@ export default function SignUp() {
   /* SignUP start */
   async function NewUser(event){
     event.preventDefault()
-    const NuevoUsuario = {firstname:event.target[0].value,
+    const NuevoUsuario = {
+                          imageUser:event.target[8].value,
+                          firstname:event.target[0].value,
                           lastname:event.target[2].value,
                           email:event.target[4].value,
                           password:event.target[6].value,
                           from:"SignUp"                        
                         }  
+            console.log(NuevoUsuario)
  
    await axios.post("http://localhost:4000/api/signup",{NuevoUsuario} )
    .then(response=> //alert(response.data.response)) 

@@ -53,7 +53,7 @@ const usersControllers = {
 
     nuevoUsuario: async (req, res) => {
 
-        const { firstname, lastname, email, password, from } = req.body.NuevoUsuario // destructuring
+        const { imageUser, firstname, lastname, email, password, from } = req.body.NuevoUsuario // destructuring
 
         try {
 
@@ -64,6 +64,7 @@ const usersControllers = {
                 /* Facebook start if */
                 if(from !== "SignUp"){
                     const passwordHash = bcryptjs.hashSync(password, 10)
+                    usuarioExiste.imageUser=imageUser;
                     usuarioExiste.password= passwordHash;
                     usuarioExiste.emailVerificado= true;
                     usuarioExiste.from= from;
@@ -103,6 +104,7 @@ const usersControllers = {
                 const passwordHash = bcryptjs.hashSync(password, 10)
 
                 const newUser = new User({
+                    imageUser,
                     firstname,
                     lastname,
                     email,
@@ -179,6 +181,7 @@ const usersControllers = {
                     if (passwordCoincide) {
                         
                         const datosUser = {
+                            imageUser:usuario.imageUser,
                             firstname: usuario.firstname,
                             lastname: usuario.lastname,
                             email: usuario.email,
@@ -216,7 +219,8 @@ const usersControllers = {
     verificarToken: async(req, res)=>{
         if(!req.error){
             res.json({success:true, 
-                datosUser:{              
+                datosUser:{   
+                    imageUser:req.user.imageUser,           
                     firstname:req.user.firstname, 
                     lastname:req.user.lastname,
                     email:req.user.email,
