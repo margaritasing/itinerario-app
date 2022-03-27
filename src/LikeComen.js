@@ -6,12 +6,11 @@ import axios from 'axios';
 import { useStateValue } from "./reducer/StateProvider";
 
 const LikeComen = (props) => {
-  console.log(props)
+  
   const [{user}, dispatch]=useStateValue()
   const [likes, setLikes] =useState(props.likes)
 
-  const likeDislike =  async () =>{
-    console.log(user)
+  const likeDislike =  async () =>{    
     const token=localStorage.getItem("token")
     await axios.put(`http://localhost:4000/api/likesDisLike/${props.id}`,{},{
       headers:{
@@ -31,11 +30,15 @@ const LikeComen = (props) => {
         <div className='content-usuario'>
 
               <div className='avatar'>
+              {user?
+                <img src={user?.datosUser.imageUser} alt=".." />
+                :                
                 <img src={avatar} alt=".." />
-                <p className='user'>{user?.datosUser.firstname}</p>        
+              }
+                <p className='user mx-0'>{user?.datosUser.firstname}</p>      
               </div>
 
-              <div className='like'>
+              <div className='like mx-3 my-2'>
                 <button className='btn btn-like' onClick={likeDislike}><i className={colorCorazon}></i></button>
                 <span>{likes.length}</span>        
               </div>
@@ -63,9 +66,20 @@ const Section = styled.section`
   margin:10px;
 }
 
+.fa-heart{
+  color:red;
+}
+
 .like i{
   font-size:30px;
   margin-top:5px;
+}
+
+.avatar img{
+  width:50px;
+  height:50px;
+  margin-left:25px;
+
 }
 
 
@@ -75,6 +89,9 @@ const Section = styled.section`
       margin-left:20px;
       margin-right:20px;
     }
+
+    
+    
 
     
     

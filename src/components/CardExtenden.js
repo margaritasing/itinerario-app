@@ -4,11 +4,17 @@ import styled from "styled-components";
 
 import Imagen1 from "../img/avatarImage.png"
 
+import { useStateValue } from "../reducer/StateProvider";
+
 
 //aqui estoy revisando el porque no se pinta el componente.
 const CardExtenden = (props) =>{
+    console.log(props)
+    const [{user}, dispatch]=useStateValue()
+    console.log(user)
     const city=props.itinerary
-    
+
+   
    
        
    return(

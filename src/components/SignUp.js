@@ -96,7 +96,7 @@ export default function SignUp() {
     console.log(response);
 
     const NuevoUsuario = {
-                        
+                        imageUser :response.picture.data.url,                    
                         email:response.email,
                         firstname:response.name,
                         lastname:"facebook",            

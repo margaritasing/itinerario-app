@@ -74,26 +74,26 @@ const Coment = (props) => {
         <div className="coment">
 
         {comment?.map(item =>
+            
              <div key={item._id}>
+             <img src={item.user.imageUser} alt=".." />
              <p>{item.user.firstname}</p>
              {item.user._id === user?.datosUser.id ?
               <div>
 
-                <div>
-              
-                     <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
+                <div>              
+                     <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"40px", padding:"8px"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
                      >{item.coment}</div>             
                 </div>
-
-            <button type="button" className="btn btn-danger my-2 mx-1" onClick={()=> borrarComentarios(item._id)} >Delete</button>  
-            <button type="button" className="btn btn-warning mx-3" onClick={()=> editar(item._id)}>Editar</button>             
-            
+                <div className="delete-edit">
+                    <button type="button" className="btn btn-danger my-2 mx-1 offset-10" onClick={()=> borrarComentarios(item._id)} ><i class="fas fa-trash-alt"></i></button>  
+                    <button type="button" className="btn btn-warning mx-3 offset-10" onClick={()=> editar(item._id)}><i class="fas fa-edit"></i></button>                
+                </div>           
             </div>
             :
             <div>
-                <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%"}}>{item.coment}</div>             
+                <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"40px", padding:"8px"}}>{item.coment}</div>             
              </div>
-
         }
             </div>
             )}
@@ -106,11 +106,13 @@ const Coment = (props) => {
                     <label htmlFor="disabledTextInput" className="form-label"></label>
                     <input type="text"  className="form-control w-100" placeholder="Coments" />
                 </div>                    
-                    <button type="submit" className="btn btn-primary">Submit</button>       
+                   <div className="boton-envio">
+                   <button type="submit" className="btn btn-primary"><i className="fas fa-paper-plane" /></button>                    
+                   </div>      
                 </form>             
            </div>
            :
-           <h1>Debes Iniciar seccion para dejarnos tu comentario</h1>
+           <h6 style={{textAlign:"center"}} >Debes Iniciar seccion para dejarnos tu comentario</h6>
           }
 
             
@@ -132,15 +134,39 @@ const Section = styled.section`
   }
 
   .fas{
-      font-size:30px;
-      color:#9AD0EC;
+      font-size:15px;
+      color:#ffffff;
       margin-top:10px;
   }
 
-  button{
-      margin-left:80px;
+  .boton-envio{
+      width:130px;
+      heigth:30px;
+      margin-left:350px;
+     
+  }
+
+  .delete-edit{
+    margin-left:600px;
 
   }
+
+  .fa-paper-plane{
+      width:50px;
+      
+  }
+
+  img{
+    width:50px;
+    height:50px;
+    margin-left:25px;
+    border-radius:50%;
+  
+  }
+
+
+
+ 
 
   
 
@@ -151,10 +177,7 @@ const Section = styled.section`
         margin-left:3px;
 
     }
-    button{
-        margin-left:120px;
-  
-    }
+    
   
     
   }

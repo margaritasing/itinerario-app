@@ -18,6 +18,7 @@ const City = () => {
   const citySelecter = cities.filter(city=>city._id === id)
   const itinerarySelecter= itineraries.filter(itin =>itin.city=== citySelecter[0].name)
  
+ 
 
 
 
