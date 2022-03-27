@@ -25,7 +25,7 @@ import SignOut from "./components/SignOut";
 
 
 function App() {
-  const [{cities, itineraries}, dispatch]=useStateValue()
+  const [{cities, itinerarie}, dispatch]=useStateValue()
 
   useEffect(() => {
     axios.get("http://localhost:4000/api/datos")

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import avatar from './img/avatarImage.png'
+import avatar from '../img/avatarImage.png'
 import styled from "styled-components";
 import axios from 'axios';
 
-import { useStateValue } from "./reducer/StateProvider";
+import { useStateValue } from "../reducer/StateProvider";
 
 const LikeComen = (props) => {
   
@@ -22,7 +22,7 @@ const LikeComen = (props) => {
 
  
   
-  let colorCorazon=likes?.includes(user?.datosUser.id)? 'fas fa-heart':"fas fa-heart-circle"   
+  let colorCorazon=likes?.includes(user?.datosUser.id)? 'fas fa-heart-circle':"fas fa-heart"   
   
 
   return (
@@ -66,7 +66,7 @@ const Section = styled.section`
   margin:10px;
 }
 
-.fa-heart{
+.fas { 
   color:red;
 }
 

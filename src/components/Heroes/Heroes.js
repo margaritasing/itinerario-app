@@ -9,7 +9,7 @@ const Heroes = () =>{
 
     return(    
         <div className="heroes" style={{marginTop: "0" }}>
-                <div className= "container my-5" style={{backgroundColor: "aliceblue", marginTop: "0" }}>
+                <div className= "container my-5" style={{ marginTop: "0" }}>
                         <div className= "row p-4 pb-0 pe-lg-0 pt-lg-3 align-items-center rounded-3 border shadow-lg">
                         <div className= "col-lg-7 p-3 p-lg-5 pt-lg-3">
                             <h1 className= "display-4 fw-bold lh-1">Naples is a city in southern Italy that is located on the Gulf of Naples</h1>

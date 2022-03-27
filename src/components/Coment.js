@@ -76,7 +76,11 @@ const Coment = (props) => {
         {comment?.map(item =>
             
              <div key={item._id}>
-             <img src={item.user.imageUser} alt=".." />
+             <img src={item.user.imageUser} style={{width:"50px",
+              height:"50px",
+              marginLeft:"25px",
+              borderRadius:"50%"
+            }} alt=".." />
              <p>{item.user.firstname}</p>
              {item.user._id === user?.datosUser.id ?
               <div>
@@ -86,8 +90,8 @@ const Coment = (props) => {
                      >{item.coment}</div>             
                 </div>
                 <div className="delete-edit">
-                    <button type="button" className="btn btn-danger my-2 mx-1 offset-10" onClick={()=> borrarComentarios(item._id)} ><i class="fas fa-trash-alt"></i></button>  
-                    <button type="button" className="btn btn-warning mx-3 offset-10" onClick={()=> editar(item._id)}><i class="fas fa-edit"></i></button>                
+                    <button type="button" className="btn btn-danger my-2 mx-1 offset-10" onClick={()=> borrarComentarios(item._id)} ><i className="fas fa-trash-alt"></i></button>  
+                    <button type="button" className="btn btn-warning mx-3 offset-10" onClick={()=> editar(item._id)}><i className="fas fa-edit"></i></button>                
                 </div>           
             </div>
             :
@@ -156,13 +160,7 @@ const Section = styled.section`
       
   }
 
-  img{
-    width:50px;
-    height:50px;
-    margin-left:25px;
-    border-radius:50%;
-  
-  }
+
 
 
 

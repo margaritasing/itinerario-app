@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LikeComen from "../LikeComen";
+import LikeComen from "./LikeComen";
 import Coment from "./Coment";
 
 

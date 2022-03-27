@@ -49,7 +49,8 @@ const Section = styled.section`
     height: 100%;
     img {
       width: 100%;
-      filter: brightness(50%);
+      
+      
     }
   }
   .content {

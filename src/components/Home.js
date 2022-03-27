@@ -6,7 +6,8 @@ import Service from "./Service";
 import Slider from "./Slider/Slider";
 import Heroes from "./Heroes/Heroes";
 import Galeria from "./Galeria/Galeria";
-import Opinion from "./Opinion/Opinion";
+import Middle from "./Middle";
+
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       <Service />
       <Heroes />
       <Galeria />
-      <Opinion />
+      <Middle/>
       <Slider />
     </div>
   );

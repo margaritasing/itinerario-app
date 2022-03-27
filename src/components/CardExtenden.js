@@ -9,9 +9,10 @@ import { useStateValue } from "../reducer/StateProvider";
 
 //aqui estoy revisando el porque no se pinta el componente.
 const CardExtenden = (props) =>{
-    console.log(props)
-    const [{user}, dispatch]=useStateValue()
-    console.log(user)
+    
+    const [{user}]=useStateValue()
+    console.log(props.user)
+    
     const city=props.itinerary
 
    
