@@ -74,8 +74,8 @@ function App() {
         <Top />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cities" element={<Cities />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/cities" element={<Cities />} />          
+          <Route path="/signin" element={<SignIn />} />          
           <Route path="/signup" element={<SignUp />} />  
           <Route path="/signout" element={<SignOut />} />          
           <Route path="/city/:id" element={<City/>}

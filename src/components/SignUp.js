@@ -183,7 +183,8 @@ export default function SignUp() {
         </Typography>
          <form className={classes.form} noValidate onSubmit={NewUser}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>            
+            
               <TextField
                 autoComplete="fname"
                 name="firstName"

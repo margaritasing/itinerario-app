@@ -114,6 +114,7 @@ const usersControllers = {
                     connected:false,
                     from,
                 })
+                console.log(newUser.imageUser)
 
                  /* Facebook start else */
 
