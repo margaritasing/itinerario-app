@@ -36,7 +36,7 @@ function Register() {
   return (
     <div className="h-registro">
       <>
-        <button className="d-flex me-6" style={{backgroundColor: "#fff", borderRadius:"25px", padding:"10px"}} onClick={mostrarMenu}>
+        <button className="d-flex mx-5" style={{backgroundColor: "#fff", borderRadius:"25px", padding:"10px"}} onClick={mostrarMenu}>
           <i className="fas fa-user"></i>
         </button>
         {showMenu && (

@@ -11,24 +11,24 @@ function Navbar() {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark sticky-top" style={{ backgroundColor:"#d0d8ff",fontFamily:"Satisfy, cursive", fontSize:"25px" }}>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" style={{fontFamily:"Satisfy, cursive", fontSize:"25px" }}>
       <div className="container-fluid">
         <a className="navbar-brand ms-3" href="/#" style={{color:"#4361ee", fontSize:"35px"}}>
           <img className="img-top ms-3 me-1" src={Imagen} alt="..." />
           My Itinerary
         </a>
         <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" ></span>
         </button>
-        <div className="collapse navbar-collapse ms-4 " id="navbarNav">
+        <div className="collapse navbar-collapse ms-4 " id="navbarNav" >
           <div className="navegacion offset-8">
             <ul className="navbar-nav ">
               <li className="nav-item">
@@ -43,8 +43,8 @@ function Navbar() {
               </li>
             </ul>
           </div>
+          <Register />
         </div>
-        <Register />
       </div>
     </nav>
   );

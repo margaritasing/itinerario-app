@@ -11,11 +11,7 @@ export default function Hero() {
       <div className="content">
         <div className="title">
           <h1>TRAVEL TO EXPLORE</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            natus, enim ipsam magnam odit deserunt itaque? Minima earum velit
-            tenetur!
-          </p>
+        
         </div>
         <div className="search">
           <div className="container">
@@ -45,12 +41,14 @@ const Section = styled.section`
   // margin-top: 1rem;
   width: 100%;
   height: 100%;
+  
   .background {
     height: 100%;
+    
     img {
       width: 100%;
-      
-      
+      height: 350px;
+          
     }
   }
   .content {
@@ -68,7 +66,7 @@ const Section = styled.section`
     .title {
       color: white;
       h1 {
-        font-size: 3rem;
+        font-size: 2rem;
         letter-spacing: 0.2rem;
       }
       p {

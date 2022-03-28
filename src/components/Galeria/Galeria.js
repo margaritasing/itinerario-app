@@ -84,23 +84,27 @@ const Galeria = () => {
 
 const Section = styled.section`
 div{
-    margin:0;
+    margin:0;   
     padding: 0;
     box-sizing: border-box;
-    background-color:#edffe1;
     
+    
+}
+
+.galeria{    
+    background-color:#edffe1;
 }
 
 
 .galeria h1{
     text-align: center;
-    margin:20px 0 15px 0;
+    margin:20px 0 0 0;
     font-weight: 300;
 }
 
 .linea{
     border-top: 5px solid #0077C0;
-    margin-bottom: 40px;
+    
 }
 
 .contenedor-imagenes{
@@ -109,15 +113,16 @@ div{
     margin: auto;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color:aliceblue;
+    background-color:#edffe1;
+    padding-bottom:30px;
 }
 
 .contenedor-imagenes .imagen{
     width: 32%;
     position: relative;
     height:250px;
-    margin-bottom:5px;
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, .75)
+   
+    
 }
 .imagen img{
     width: 100%;
@@ -174,6 +179,10 @@ div{
     }
     .contenedor-imagenes{
         width: 98%;
+    }
+
+    .imagen{
+        margin-top:10px;
     }
     .contenedor-imagenes .imagen{
         width: 80%;
