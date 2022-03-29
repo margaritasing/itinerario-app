@@ -12,6 +12,7 @@ export const actionType={
     ITINERARIESDB: "ITINERARIESDB",
     USER:"USER",
     FILTER:"FILTER",
+    CITYCONTINENTE:"CITYCONTINENTE"
     
 }
 
@@ -46,7 +47,14 @@ const reducer=(state, action)=>{
                 ...state,                
                 filterCity:filterCity,
                 
-            }            
+            } 
+        case "CITYCONTINENTE":
+            const cityContinente = state.cities.filter(city => city.continents.includes(action.value)) 
+            console.log(cityContinente)
+            return{
+                ...state,
+                cityContinente:cityContinente
+            }        
 
         default:return state
     }
