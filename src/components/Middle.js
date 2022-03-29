@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as LinkRouter } from "react-router-dom";
 import styled from "styled-components";
 import Imagen from "../img/middle.png"
 
@@ -20,7 +21,9 @@ const Middle = () => {
                     <li>You won't miss anything interesting</li>  
                     <li>You won't go wrong with any tour, hotel or restaurant</li>              
                 </ul>
-                <button type="button" class="btn ">Read More</button>               
+                <LinkRouter to="/cities">
+                  <button type="button" class="btn ">Read More</button>                 
+                </LinkRouter> 
               </div>              
              
         </div>              
@@ -71,9 +74,14 @@ button{
 
   
   @media screen and (min-width: 280px) and (max-width: 720px) {
+
+    .middle{
+       flex-direction: column;
+    }
     img{
-      width:300px;
+      width:350px;
       height:350px;
+      margin-left:10px;
     }
 
     h2{     
@@ -81,7 +89,7 @@ button{
     }
 
     ul{  
-      margin-left:20px;   
+      margin-left:5px;   
      }
 
      button {
