@@ -22,7 +22,7 @@ const Middle = () => {
                     <li>You won't go wrong with any tour, hotel or restaurant</li>              
                 </ul>
                 <LinkRouter to="/cities">
-                  <button type="button" class="btn ">Read More</button>                 
+                  <button type="button" className="btn ">Read More</button>                 
                 </LinkRouter> 
               </div>              
              
@@ -85,11 +85,18 @@ button{
     }
 
     h2{     
-      margin: 15px;
+      margin: 0 0 0 15px;
     }
 
+    .text-middle{
+      margin-top:0;
+    }
+
+    
+    
     ul{  
       margin-left:5px;   
+      margin-top:5px;
      }
 
      button {

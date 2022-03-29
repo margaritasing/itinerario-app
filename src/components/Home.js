@@ -7,6 +7,7 @@ import Slider from "./Slider/Slider";
 import Heroes from "./Heroes/Heroes";
 import Galeria from "./Galeria/Galeria";
 import Middle from "./Middle";
+import ItinerarioContinen from "./ItinerarioContinen";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Hero />
       <Service />
       <Heroes />
+      <ItinerarioContinen/>
       <Galeria />
       <Middle/>
       <Slider />
