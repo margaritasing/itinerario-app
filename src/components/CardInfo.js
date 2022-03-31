@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import LikeComen from "./LikeComen";
 import Coment from "./Coment";
+import Drop from "./Drop";
 
 
 const CardInfo = (props) => {
 
-  console.log(props.itinerary)
+ 
+  /* const [dropdown, setDropdown]=useState(false)
+
+  const abrirCerrar = () => {
+    setDropdown(!dropdown)
+  } */
+
+  
  
 
   return (
@@ -23,15 +32,15 @@ const CardInfo = (props) => {
               <h5 className="card-title">{data.name}</h5>
                   <p className="card-text">{data.description}</p>
                   <p className="card-text"><small className="text-muted">{data.price}</small></p>
-              </div>
-              <div className="my-3">
-               <Coment itinerary={data._id} />  
-               <LikeComen likes={data.likes} id={data._id}/>         
-               </div>   
-               </div>
-              )}     
+              </div>  
+                  
               
-           
+              <div className="my-3">
+              <Coment itinerary={data._id} />
+              <LikeComen likes={data.likes} id={data._id}/>     
+              </div>             
+              </div>
+              )}             
            </div>          
            </div>              
           </div>          

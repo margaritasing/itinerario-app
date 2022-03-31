@@ -8,7 +8,7 @@ import { useStateValue } from "../reducer/StateProvider";
 
 export default function CardCities() {
 
-  const [{filterCity}] = useStateValue()
+  const [{filterCity}] = useStateValue() 
 
   const packages = [
     "The Weekend Break",

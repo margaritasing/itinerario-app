@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from "styled-components";
+import { Link as LinkRouter } from "react-router-dom";
 import { actionType } from '../reducer/reducer';
 import { useStateValue } from '../reducer/StateProvider';
 
  const ItinerarioContinen = () => {
-    const [{cities, cityContinente}, dispatch] = useStateValue()
+    const [{cities, cityContinente, filterCity}, dispatch] = useStateValue()
   const data = [
     {
       id:"001",
@@ -47,12 +48,14 @@ import { useStateValue } from '../reducer/StateProvider';
         <Section>   
         {data.map((continente) => (       
             <div className="continente" key={continente.id}>
-              <button className='btn' onClick={() => filtroContinent(continente.name)}>
-                  <div className="icon">
-                      <img src={continente.image} alt="" />
-                </div>
-                      <h3>{continente.name}</h3>                
-              </button>        
+           
+            <button className='btn' onClick={() => filtroContinent(continente.name)}>
+              <div className="icon">
+                    <img src={continente.image} alt="" />
+              </div>
+                    <h3>{continente.name}</h3>                
+            </button>                    
+             
           </div>       
         ))}
             </Section>

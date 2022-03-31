@@ -6,7 +6,7 @@ import { BsLinkedin, BsFacebook } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 export default function Footer() {
   return (
-    <FooterContainer style={{color:"#4361ee"}}>
+    <FooterContainer className="bg-light" style={{color:"#4361ee",fontFamily:"Satisfy, cursive"}}>
       <span style={{fontSize:"35px"}}> My Itinerary</span>
       <span style={{color:"#4361ee"}}>Copyright &copy; 2022</span>
       <ul className="links">
