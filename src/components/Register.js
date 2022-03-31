@@ -3,17 +3,14 @@ import { Link as LinkRouter } from "react-router-dom";
 import { useStateValue } from '../reducer/StateProvider';
 import axios from 'axios';
 import { actionType } from "../reducer/reducer";
-import Imagen from "../img/avatarImage.png"
 
 function Register() {
 
   const [{ user }, dispatch] = useStateValue()
 
-  
-  async function cerrarCesion() {
-    const email = user.datosUser.email
-    console.log(email)
-    
+    async function cerrarCesion() {
+        const email = user.datosUser.email
+        console.log(email)
         await axios.post("http://localhost:4000/api/signOut", {email})
         .then(response =>{
           console.log(response.response)            
@@ -32,7 +29,6 @@ function Register() {
     }
 
 
-
   const [showMenu, setShowMenu] = React.useState(false);
   function mostrarMenu() {
     showMenu ? setShowMenu(false) : setShowMenu(true);
@@ -40,8 +36,8 @@ function Register() {
   return (
     <div className="h-registro">
       <>
-        <button className="d-flex mx-5" style={{backgroundColor: "#fff", borderRadius:"50%"}} onClick={mostrarMenu}>
-           <img src={Imagen} alt="..." style={{width:"50px", height:"50px", borderRadius:"50%"}}/>
+        <button className="d-flex mx-5" style={{backgroundColor: "#fff", borderRadius:"25px", padding:"10px"}} onClick={mostrarMenu}>
+          <i className="fas fa-user"></i>
         </button>
         {showMenu && (
           <div className="h-usuario">

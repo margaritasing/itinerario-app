@@ -49,12 +49,12 @@ import { useStateValue } from '../reducer/StateProvider';
         {data.map((continente) => (       
             <div className="continente" key={continente.id}>
            
-            <button className='btn' onClick={() => filtroContinent(continente.name)}>
+            <LinkRouter to="/cities" className='btn' onClick={() => filtroContinent(continente.name)}>
               <div className="icon">
                     <img src={continente.image} alt="" />
               </div>
                     <h3>{continente.name}</h3>                
-            </button>                    
+            </LinkRouter>                    
              
           </div>       
         ))}

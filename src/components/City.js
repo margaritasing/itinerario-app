@@ -4,15 +4,15 @@ import { useStateValue } from "../reducer/StateProvider";
 
 import HeroCard from "./HeroCard";
 import CardInfo from "./CardInfo";
-import CardExtenden from "./CardExtenden";
 import { useParams } from "react-router-dom";
+
 
 
 
 
 const City = () => {
 
-  const [{cities,itineraries,user}, dispatch]=useStateValue()
+  const [{cities,itineraries}, dispatch]=useStateValue()
   
   
   const {id}=useParams()
@@ -29,8 +29,7 @@ const City = () => {
 
   return (
     <div className="city">
-      <HeroCard  itinerary={citySelecter}/>
-      <CardExtenden itinerary={citySelecter} />
+      <HeroCard  itinerary={citySelecter}/>      
       <CardInfo itinerary={itinerarySelecter} />      
     </div>
   );

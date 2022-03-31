@@ -20,8 +20,7 @@ const FormImg = () => {
   }
 
       const inputSearch = (event) =>{
-      
-          dispatch({
+            dispatch({
             type:actionType.FILTER,
             value:{value: event.target.value, filterBy:filtro}
           })

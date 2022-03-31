@@ -51,6 +51,7 @@ export default function HeroCard(props) {
 
 const Section = styled.section`
   position: relative;
+  margin-bottom:40px; 
 
   width: 100%;
   height: 100%;
@@ -136,6 +137,7 @@ const Section = styled.section`
   }
   @media screen and (min-width: 280px) and (max-width: 980px) {
     height: 25rem;
+    margin-bottom:80px; 
     .background {
       background-color: palegreen;
       img {

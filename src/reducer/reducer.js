@@ -49,12 +49,13 @@ const reducer=(state, action)=>{
                 
             } 
         case "CITYCONTINENTE":
-            const cityContinente = state.cities.filter(city => city.continents.includes(action.value)) 
-            console.log(cityContinente)
+            const cityContinente = state.cities.filter(city => city.continents.includes(action.value))            
             return{
                 ...state,
-                cityContinente:cityContinente
-            }        
+                cityContinente:cityContinente,
+                filterCity:cityContinente
+            }      
+
 
         default:return state
     }

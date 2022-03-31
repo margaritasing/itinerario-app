@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
 import LikeComen from "./LikeComen";
 import Coment from "./Coment";
-import Drop from "./Drop";
+
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-const CardInfo = (props) => {
 
- 
-  /* const [dropdown, setDropdown]=useState(false)
 
-  const abrirCerrar = () => {
-    setDropdown(!dropdown)
-  } */
-
-  
+const CardInfo = (props) => { 
  
 
   return (
@@ -33,12 +30,24 @@ const CardInfo = (props) => {
                   <p className="card-text">{data.description}</p>
                   <p className="card-text"><small className="text-muted">{data.price}</small></p>
               </div>  
-                  
-              
-              <div className="my-3">
-              <Coment itinerary={data._id} />
-              <LikeComen likes={data.likes} id={data._id}/>     
-              </div>             
+
+              <div>
+                  <Accordion className="acordeon">
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header" className="my-3"
+                    >
+                      <Typography>See More</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                    <div className="my-2">
+                    <Coment itinerary={data._id} />
+                    <LikeComen likes={data.likes} id={data._id}/>     
+                    </div>                        
+                    </AccordionDetails>
+                  </Accordion>      
+               </div>            
               </div>
               )}             
            </div>          
@@ -55,6 +64,7 @@ const Section = styled.section`
     margin-left:280px;
     margin-top:30px;
     
+    
   } 
 
   .card{
@@ -62,9 +72,8 @@ const Section = styled.section`
  
   }
 
-  .card-body{
-     
-    
+  .acordeon{
+    margin:10px;  
    
   }
 
