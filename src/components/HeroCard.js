@@ -13,35 +13,20 @@ export default function HeroCard(props) {
     <Section id="HeroCard"> 
     { city.map((data, index)=> 
       <div key={index}>
-      <div className="background" >
-          <img src={data.image} alt="" />
-      </div>
-      <div className="content">      
-        
-            <div className="title">
+          <div className="background" >
+              <img src={data.image} alt=""  />
+          </div>
+      <div className="content">        
+          <div className="title">
               <h1>{data.name}</h1>
-                <p>{data.description}</p>
-            </div>     
-            <div className="search">
-                <div className="container">
-                  <label htmlFor="">Where you want to go</label>
-                  <input type="text" placeholder="Search Your location" />
-                </div>
-              <div className="container">
-                  <label htmlFor="">Check-in</label>
-                  <input type="date" />
-              </div>
-              <div className="container">
-                  <label htmlFor="">Check-out</label>
-                  <input type="date" />
-              </div>
-              <Link className="nav-link" aria-current="page" to="/cities">
-               <button>Reserve</button>
-              </Link>
-            
-            </div>
+              <p>{data.description}</p>
+          </div>     
+          <div className="search">
+             <img className="bandera" src={data.flag} alt="..."/>          
           </div>
-          </div>
+      </div>
+         
+      </div>
     
     )}   
 
@@ -51,10 +36,18 @@ export default function HeroCard(props) {
 
 const Section = styled.section`
   position: relative;
-  margin-bottom:40px; 
-
+  margin-bottom:40px;
   width: 100%;
   height: 100%;
+  .search img {
+    border-radius:50%;
+    width:200px;
+    height:200px;
+    position: relative;
+    z-index: 1000;   
+    margin-top:250px;
+   }
+  
   .background {
     height: 100%;
     img {
@@ -77,78 +70,52 @@ const Section = styled.section`
     gap: 1rem;
     .title {
       color: white;
+      margin-top:150px;
       h1 {
-        font-size: 3rem;
+        font-size: 100px;
         letter-spacing: 0.2rem;
       }
       p {
         text-align: center;
         padding: 0 30vw;
         margin-top: 0.5rem;
-        font-size: 1.2rem;
+        font-size: 2.5rem;
       }
     }
     .search {
-      display: flex;
-      background-color: #ffffffce;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
+     
+      display: flex;     
       .container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 0 1.5rem;
-        label {
-          font-size: 1.1rem;
-          color: #03045e;
-        }
-        input {
-          background-color: transparent;
-          border: none;
-          text-align: center;
-          color: black;
-          &[type="date"] {
-            padding-left: 3rem;
-          }
-          &::placeholder {
-            color: black;
-          }
-          &:focus {
-            outline: none;
-          }
-        }
+        padding: 0 1.5rem;        
       }
-      button {
-        padding: 1rem;
-        cursor: pointer;
-        border-radius: 0.3rem;
-        border: none;
-        color: white;
-        background-color: #4361ee;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        transition: 0.3s ease-in-out;
-        &:hover {
-          background-color: #023e8a;
-        }
-      }
+    
     }
   }
   @media screen and (min-width: 280px) and (max-width: 980px) {
     height: 25rem;
-    margin-bottom:80px; 
-    .background {
-      background-color: palegreen;
-      img {
-        height: 100%;
-      }
+    margin-bottom:150px;
+   .background{ 
+          
+    img {
+     
     }
+   }
+    
+    .search img {         
+      margin-top:0px; 
+      width:100px;
+      height:100px; 
+           
+     } 
     .content {
-      margin-top: 30px;
+     
       .title {
         h1 {
-          font-size: 1rem;
+          font-size: 3rem;
         }
         p {
           font-size: 0.8rem;
@@ -166,6 +133,7 @@ const Section = styled.section`
             padding-left: 1rem;
           }
         }
+        
         button {
           padding: 1rem;
           font-size: 1rem;

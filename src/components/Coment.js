@@ -108,7 +108,7 @@ const Coment = (props) => {
                     
                 <div className="mb-3">
                     <label htmlFor="disabledTextInput" className="form-label"></label>
-                    <input type="text"  className="form-control w-100" placeholder="Coments" />
+                    <input type="text"  className="form-control w-100" placeholder="Write us" />
                 </div>                    
                    <div className="boton-envio">
                    <button type="submit" className="btn btn-primary"><i className="fas fa-paper-plane" /></button>                    

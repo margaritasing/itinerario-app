@@ -27,7 +27,7 @@ const comentControllers={
         } catch (error) {
             console.log(error)           
         }
-        res.json({success:true, response:{comentario}})//traemos esos datos , de los comentarios hechos por ese usuario       
+        res.json({success:true, response:{comentario}, message:"Gracias por tu comentario"})//traemos esos datos , de los comentarios hechos por ese usuario       
     },
 
     obtenerComentarios: async(req, res)=>{
@@ -55,7 +55,7 @@ const comentControllers={
         } catch (error) {
             console.log(error)           
         }
-        res.json({success:true, response:{comentario}})
+        res.json({success:true, response:{comentario}, message:"Se ha borrado tu comentario"})
     },
 
     editarComentario: async(req, res) =>{

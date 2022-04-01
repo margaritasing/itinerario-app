@@ -21,7 +21,7 @@ const CardInfo = (props) => {
            <div className="container">
            <div className="row">
            {props.itinerary.map( data=> 
-              <div className="card col-md-9 my-4" key={data._id}>  
+              <div className="card col-md-9" key={data._id}>  
               <div className="imagen">
               <img src={data.image} className="img-fluid rounded-start" alt="..." />                   
               </div>                        
@@ -69,6 +69,7 @@ const Section = styled.section`
 
   .card{
     display:flex;
+    margin-top:80px;
  
   }
 
@@ -105,7 +106,7 @@ const Section = styled.section`
     }
 
     Typography {
-      marginLeft:100px;
+      marginLeft:100px
     }
 
     .card {
