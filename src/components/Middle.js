@@ -22,7 +22,7 @@ const Middle = () => {
                     <li>You won't go wrong with any tour, hotel or restaurant</li>              
                 </ul>
                 <LinkRouter to="/cities">
-                  <button type="button" className="btn ">Read More</button>                 
+                  <button className="custom-btn btn-3"><span>Read More</span></button>              
                 </LinkRouter> 
               </div>              
              
@@ -37,7 +37,8 @@ const Middle = () => {
 const Section = styled.section`
 .middle{
   display:flex;
-  justify-content:space-around;  
+  justify-content:space-around; 
+  background-color:#fff; 
 }
 
 .text-middle{
@@ -68,6 +69,90 @@ button{
   margin-left:160px;
   background-color:#0d6efd;
   color:#fff;
+}
+
+/* 3 */
+.btn-3 {
+    background: rgb(0, 172, 238);
+    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+}
+
+.btn-3 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-3:before,
+.btn-3:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.btn-3:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-3:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-3:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-3:hover:before {
+    height: 100%;
+}
+
+.btn-3:hover:after {
+    width: 100%;
+}
+
+.btn-3 span:hover {
+    color: rgba(2, 126, 251, 1);
+}
+
+.btn-3 span:before,
+.btn-3 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.btn-3 span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.btn-3 span:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-3 span:hover:before {
+    height: 100%;
+}
+
+.btn-3 span:hover:after {
+    width: 100%;
 }
 
 

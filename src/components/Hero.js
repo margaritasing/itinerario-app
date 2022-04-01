@@ -27,7 +27,7 @@ export default function Hero() {
             <input type="date" />
           </div>
           <Link className="nav-link" aria-current="page" to="/cities">
-          <button>Explore Now</button>
+         <button className="custom-btn btn-3"><span className="titulo-">Explore Now</span></button>
           </Link>
         
         </div>
@@ -107,22 +107,103 @@ const Section = styled.section`
           }
         }
       }
-      button {
-        padding: 1rem;
-        cursor: pointer;
-        border-radius: 0.3rem;
-        border: none;
-        color: white;
-        background-color: #4361ee;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        transition: 0.3s ease-in-out;
-        &:hover {
-          background-color: #023e8a;
-        }
-      }
+    
     }
   }
+
+  /* 3 */
+
+.titulo{
+  margin-top: 10px;
+}
+.btn-3 {
+    background: rgb(0, 172, 238);
+    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+    width: 130px;
+    height: 90px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    text-aling:center;
+    
+
+}
+
+.btn-3 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-3:before,
+.btn-3:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.btn-3:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-3:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-3:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-3:hover:before {
+    height: 100%;
+}
+
+.btn-3:hover:after {
+    width: 100%;
+}
+
+.btn-3 span:hover {
+    color: rgba(2, 126, 251, 1);
+}
+
+.btn-3 span:before,
+.btn-3 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.btn-3 span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.btn-3 span:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn-3 span:hover:before {
+    height: 100%;
+}
+
+.btn-3 span:hover:after {
+    width: 100%;
+}
+
+
+
+
   @media screen and (min-width: 280px) and (max-width: 980px) {
     height: 25rem;
     .background {

@@ -5,9 +5,11 @@ import Service from "./Service";
 
 import Slider from "./Slider/Slider";
 import Heroes from "./Heroes/Heroes";
-import Galeria from "./Galeria/Galeria";
+
 import Middle from "./Middle";
 import ItinerarioContinen from "./ItinerarioContinen";
+import Carousel from "./Carrusel/Carousel";
+
 
 
 const Home = () => {
@@ -17,9 +19,9 @@ const Home = () => {
       <Service />
       <Heroes />
       <ItinerarioContinen/>
-      <Galeria />
+      <Carousel/>   
       <Middle/>
-      <Slider />
+      <Slider />      
     </div>
   );
 };

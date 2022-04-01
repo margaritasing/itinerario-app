@@ -7,7 +7,7 @@ import Imagen2 from "../../img/Destination2.png"
 import Imagen3 from "../../img/Destination3.png"
 import Imagen4 from "../../img/Destination4.png"
 import Imagen5 from "../../img/Destination5.png"
-import Imagen6 from "../../img/Destination6.png"
+import Imagen6 from "../../img/Destination6.jpg"
 
  const Slider = () => {
   return (
@@ -19,37 +19,37 @@ import Imagen6 from "../../img/Destination6.png"
         <div className="imagen">
             <img src={Imagen1} alt=""></img>            
             <div className="overlay">
-                <h2>Ciudad de Mexico</h2>
+                <h2>Singapur</h2>
             </div>
         </div>
         <div className="imagen">
             <img src={Imagen2} alt=""></img>
             <div className="overlay">
-                <h2>La Paz</h2>
+                <h2>Japón</h2>
             </div>
         </div>
         <div className="imagen">
             <img src={Imagen3} alt=""></img>
             <div className="overlay">
-                <h2>Estocolmo</h2>
+                <h2>Paris</h2>
             </div>
         </div>
         <div className="imagen">
             <img src={Imagen4} alt=""></img>
             <div className="overlay">
-                <h2>Lisboa</h2>
+                <h2>Canada</h2>
             </div>
         </div>
         <div className="imagen">
             <img src={Imagen5} alt=""></img>
             <div className="overlay">
-                <h2>Montevideo</h2>
+                <h2>Bora Bora</h2>
             </div>
         </div>
         <div className="imagen">
             <img src={Imagen6} alt=""></img>
             <div className="overlay">
-                <h2>Paris</h2>
+                <h2>India</h2>
             </div>
         </div>          
     </div>

@@ -10,27 +10,27 @@ import { useStateValue } from '../reducer/StateProvider';
     {
       id:"001",
       name: "America",
-      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continentes%2Fcontinente%20(3).png?alt=media&token=3a602c11-88cc-4ca3-b403-4b5dbe98e569",
+      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continente%20png%2Famerica1.png?alt=media&token=18df9e8c-d2fc-4b7b-ae9c-76e1bac7dad4",
     },
     {
       id:"002",
       name: "Europe",
-      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continentes%2Fcontinente%20(2).png?alt=media&token=e0d461aa-604d-440a-8ae9-e313955b0ddb",
+      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continente%20png%2Feuropa1.png?alt=media&token=4c0a0d0d-e6be-4d11-81ef-da8f156498eb",
     },
     {
       id:"003",
       name: "África",
-      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continentes%2Fcontinente%20(5).png?alt=media&token=88c3da38-f79a-4cc5-b150-31dcba46bb2f"
+      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continente%20png%2Fafrica1.png?alt=media&token=f55a3db5-9546-4f4b-a13a-0dc778290d42"
     },
     {
       id:"004",
       name: "Oceania",
-      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continentes%2Fcontinente%20(4).png?alt=media&token=c093f4e0-ac91-484c-95de-ae0f00d87334",
+      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continente%20png%2Foceania1.png?alt=media&token=5f5c5b96-11f3-48ab-ad4d-3cd8afee77ee",
     },
     {
       id:"005",
       name: "Asia",
-      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continentes%2Fcontinente%20(1).png?alt=media&token=47a63fde-1d3e-45e8-9cbb-72879456131f"      
+      image:"https://firebasestorage.googleapis.com/v0/b/itinerary-app-react.appspot.com/o/continente%20png%2Fasia1.png?alt=media&token=00bedceb-2fb5-4f00-84f7-4135505d1891"      
       ,
     },
   ];
@@ -74,16 +74,15 @@ const Section = styled.section`
     display: flex;
     flex-direction: column;   
     padding: 2rem;  
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    transition: 0.3s ease-in-out;
-    &:hover {
-      transform: translateX(0.4rem) translateY(-1rem);
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
     .icon {
       img {
         width:7rem;
-        margin-left:50px;
+       
+        transition: 0.3s ease-in-out;
+        &:hover {
+          transform: translateX(0.4rem) translateY(-1rem);
+         
+        }        
         height: 7rem;
         
       }
