@@ -13,8 +13,10 @@ import "./App.css"
 
 import axios from "axios";
 
+
+
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./components/Home"; 
 import Cities from "./components/Cities";
 import Navbar from "./components/NavBar";
  import SignIn from "./components/SignIn";
@@ -66,12 +68,14 @@ function App() {
       }
   },[])
 
+
+  
  
 
 
   return (
     <BrowserRouter>
-      <div className="">
+      <div className="">      
         <Navbar /> {/* Esto es para que quede fijo en todas las rutas */}
         <Top />
         <Routes>

@@ -38,7 +38,7 @@ const CardInfo = (props) => {
                       aria-controls="panel1a-content"
                       id="panel1a-header" className="my-3"
                     >
-                      <Typography>See More</Typography>
+                      <Typography style={{textAign:"center", marginLeft:"300px"}}>See More</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                     <div className="my-2">
@@ -74,18 +74,15 @@ const Section = styled.section`
 
   .acordeon{
     margin:10px;  
-   
-  }
-
-  h5 {
     
-
-   
+  }
   
+  
+  
+  .MuiTypography-root p {
     
-  }
-
-  p{
+    text-align:center;
+    margin-left:100px;
    
   }
  
@@ -103,9 +100,12 @@ const Section = styled.section`
 
   
   @media screen and (min-width: 280px) and (max-width: 720px) {
-    .cardinfo {
-    
+    .cardinfo {    
       margin: 10px 0 10px 0;
+    }
+
+    Typography {
+      marginLeft:100px;
     }
 
     .card {

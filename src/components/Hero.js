@@ -26,8 +26,8 @@ export default function Hero() {
             <label htmlFor="">Check-out</label>
             <input type="date" />
           </div>
-          <Link className="nav-link" aria-current="page" to="/cities">
-         <button className="custom-btn btn-3"><span className="titulo-">Explore Now</span></button>
+          <Link className="" aria-current="page" to="/cities">
+            <button className="btn-3"><span>Explore Now</span></button>
           </Link>
         
         </div>
@@ -234,10 +234,7 @@ const Section = styled.section`
             padding-left: 1rem;
           }
         }
-        button {
-          padding: 1rem;
-          font-size: 1rem;
-        }
+      
         /* display: none; */
       }
     }

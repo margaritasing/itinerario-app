@@ -59,7 +59,7 @@ export default function CardCities() {
                 <span>{destination.region}</span>
                 <span>{destination.language}</span>
               </div>
-              <Link type="button"  className="custom-btn btn-12" to={"/city/" + destination._id}><span>Click!</span><span>Read More</span></Link>
+              <Link type="button"  className="custom-btn btn-12 mx-3 my-3 text-white" to={"/city/" + destination._id}><span>Click!</span><span>Read More</span></Link>
             </div>
           );
         })}

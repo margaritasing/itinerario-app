@@ -54,6 +54,7 @@ export default function Services() {
 }
 
 const Section = styled.section`
+ 
   padding-top: 5rem;
   padding_bottom:2rem;
   display: grid;
