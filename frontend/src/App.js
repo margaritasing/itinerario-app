@@ -79,7 +79,7 @@ function App() {
         <Navbar /> {/* Esto es para que quede fijo en todas las rutas */}
         <Top />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} /> {/* lo cambio para verificar las rutas */}
           <Route path="/cities" element={<Cities />} />          
           <Route path="/signin" element={<SignIn />} />          
           <Route path="/signup" element={<SignUp />} />  
