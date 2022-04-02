@@ -70,7 +70,7 @@ const responseFacebook = async (response) => {
     email: response.email,
     password: response.id +"aB",
 }
- await axios.post("https://itinerarioapp.herokuapp.com/api/signin",{userData} )
+ await axios.post("https://itinerario-app.herokuapp.com/api/signin",{userData} )
     .then(response =>
 
         displayMessages(response.data),
@@ -101,7 +101,7 @@ function displayMessages(data) {
             password: event.target[2].value,
         }
 
-        await axios.post("https://itinerarioapp.herokuapp.com/api/signin",{userData} )
+        await axios.post("https://itinerario-app.herokuapp.com/api/signin",{userData} )
             .then(response =>
 
                 displayMessages(response.data),

@@ -12,7 +12,7 @@ const LikeComen = (props) => {
 
   const likeDislike =  async () =>{    
     const token=localStorage.getItem("token")
-    await axios.put(`https://itinerarioapp.herokuapp.com/api/likesDisLike/${props.id}`,{},{
+    await axios.put(`https://itinerario-app.herokuapp.com/api/likesDisLike/${props.id}`,{},{
       headers:{
         'Authorization':'Bearer '+ token //espacio ya aplicado
       }
