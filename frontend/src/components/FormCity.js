@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {actionType } from "../reducer/reducer"
 import { useStateValue } from "../reducer/StateProvider"
-import styled from "styled-components";
+
 import { Switch } from "@mui/material";
 
 

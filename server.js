@@ -4,7 +4,7 @@ const express = require("express")  //equivalente al import de Reac, pero en Nod
 const cors = require("cors")
 const Router = require("./routes/routes")
 const passport = require("passport")
-const { path } = require("express/lib/application")
+
 const app = express()
 require("./config/database")
 require("./config/passport")
@@ -22,7 +22,7 @@ app.use("/api",Router)
 if (procces.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
     app.get('*', (req, res)=>{
-        res.sendFile(path.join(__dirname+'/cliente/build/index.html'))
+        res.sendFile(path.join(__dirname+'/client/build/index.html'))
 
     })
     

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.aabd0f05.css",
-    "main.js": "/static/js/main.cad978f1.js",
+    "main.js": "/static/js/main.a47e7ea9.js",
     "static/media/Destination6.jpg": "/static/media/Destination6.3d3b146cd484feeb60b3.jpg",
     "static/media/hero.png": "/static/media/hero.f86106e3aaf0d5316198.png",
     "static/media/singout.png": "/static/media/singout.c8d93d1851888d1ec89d.png",
@@ -10,7 +10,6 @@
     "static/media/Destination1.png": "/static/media/Destination1.b43b40ebcae365ec1bcf.png",
     "static/media/Destination4.png": "/static/media/Destination4.c19a433ba2f75f2cd33b.png",
     "static/media/Destination3.png": "/static/media/Destination3.b4028caa98dffd19d08e.png",
-    "static/media/singapur.jpg": "/static/media/singapur.28d597901d9414f5c7de.jpg",
     "static/media/avatarImage.png": "/static/media/avatarImage.ff189eec56a96a928730.png",
     "static/media/middle.png": "/static/media/middle.835c45ec6570a005287b.png",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -19,10 +18,10 @@
     "index.html": "/index.html",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "main.aabd0f05.css.map": "/static/css/main.aabd0f05.css.map",
-    "main.cad978f1.js.map": "/static/js/main.cad978f1.js.map"
+    "main.a47e7ea9.js.map": "/static/js/main.a47e7ea9.js.map"
   },
   "entrypoints": [
     "static/css/main.aabd0f05.css",
-    "static/js/main.cad978f1.js"
+    "static/js/main.a47e7ea9.js"
   ]
 }

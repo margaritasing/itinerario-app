@@ -115,7 +115,7 @@ function displayMessages(data) {
               localStorage.setItem("token", data.response.token)
                console.log(data.response) 
               }
-            //else { console.log(swal(data.response)) }
+            
 
             dispatch({
                 type: actionType.USER,
