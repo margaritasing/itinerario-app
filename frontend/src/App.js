@@ -32,13 +32,13 @@ function App() {
   const [{cities, itinerarie}, dispatch]=useStateValue()
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/datos")
+    axios.get("https://itinerarioapp.herokuapp.com/api/datos")
   .then(response =>{
     dispatch({
       type:actionType.CITIESDB,
       cities:response.data.response.cities
     })
-    axios.get("http://localhost:4000/api/itinerary")
+    axios.get("https://itinerarioapp.herokuapp.com/api/itinerary")
     .then(response => {
       dispatch({
          type:actionType.ITINERARIESDB,
@@ -50,7 +50,7 @@ function App() {
 
       if(localStorage.getItem("token") !== null){
         const token=localStorage.getItem("token")
-        axios.get("http://localhost:4000/api/signInToken", {
+        axios.get("https://itinerarioapp.herokuapp.com/api/signInToken", {
           headers:{
             'Authorization':'Bearer '+ token //espacio ya aplicado
           }
