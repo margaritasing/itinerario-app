@@ -11,7 +11,7 @@ function Register() {
     async function cerrarCesion() {
         const email = user.datosUser.email
         console.log(email)
-        await axios.post("https://itinerario-app.herokuapp.com/api/signOut", {email})
+        await axios.post("https://itinerarioapp.herokuapp.com/api/signOut", {email})
         .then(response =>{
           console.log(response.response)            
             if(response.data.success) {
