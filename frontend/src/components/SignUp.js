@@ -104,7 +104,7 @@ export default function SignUp() {
                         from:"Facebook"    
     }  
 
-      await axios.post("https://itinerarioapp.herokuapp.com/signup",{NuevoUsuario} )
+      await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
       .then(response=> //alert(response.data.response)) 
 
 
@@ -143,7 +143,7 @@ export default function SignUp() {
                         }  
             console.log(NuevoUsuario)
  
-   await axios.post("https://itinerarioapp.herokuapp.com/signup",{NuevoUsuario} )
+   await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
    .then(response=> //alert(response.data.response)) 
   
    
