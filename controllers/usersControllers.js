@@ -44,7 +44,7 @@ const usersControllers = {
         if (user) {
             user.emailVerificado = true
             await user.save()
-            res.redirect("http://localhost:3000/signin")
+            res.redirect("https://itinerarioapp.herokuapp.com/signin")
         }
         else {
             res.json({ success: false, response: "Your e-mail could not be verified" })
