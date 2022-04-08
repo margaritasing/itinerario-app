@@ -42,24 +42,20 @@ export default function CardCities() {
           return (
             <div className="destination" key={destination._id}>
               <img className="cardcities" src={destination.image} alt="" />
-              <h2>{destination.name}</h2>
-              <h3>{destination.country}</h3>
-              <p>{destination.continents}</p>
-              <p>{destination.description}</p>
-              <p>{destination.demonym}</p>
+              <h2>{destination.name}</h2>           
               <div className="info">
                 <div className="services">
                   <img src={info1} alt="" />
                   <img src={info2} alt="" />
                   <img src={info3} alt="" />
                 </div>
-                <h4>{destination.currency}</h4>
+                <h4>{destination.demonym}</h4>
               </div>
               <div className="distance">
                 <span>{destination.region}</span>
                 <span>{destination.language}</span>
               </div>
-              <Link type="button"  className="custom-btn btn-12 mx-3 my-3 text-white" to={"/city/" + destination._id}><span>Click!</span><span>Read More</span></Link>
+              <Link type="button"  className="btn btn-info  w-100  my-3 text-white" to={"/city/" + destination._id}><span>Read More</span></Link>
             </div>
           );
         })}
@@ -139,86 +135,14 @@ const Section = styled.section`
     }
   }
 
-  .btn-12 {
-    position: relative;
-    right: 20px;
-    bottom: 20px;
-    border: none;
-    box-shadow: none;
-    width: 130px;
-    height: 40px;
-    line-height: 42px;
-    -webkit-perspective: 230px;
-    perspective: 230px;
-}
-
-.btn-12 span {
-    background: rgb(0, 172, 238);
-    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
-    display: block;
-    position: absolute;
-    width: 350px;
-    height: 40px;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-        7px 7px 20px 0px rgba(0, 0, 0, .1),
-        4px 4px 5px 0px rgba(0, 0, 0, .1);
-    border-radius: 5px;
-    margin: 10px 10px 10px 0;
-    text-align: center;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-}
-
-.btn-12 span:nth-child(1) {
-    box-shadow:
-        -7px -7px 20px 0px #fff9,
-        -4px -4px 5px 0px #fff9,
-        7px 7px 20px 0px #0002,
-        4px 4px 5px 0px #0001;
-    -webkit-transform: rotateX(90deg);
-    -moz-transform: rotateX(90deg);
-    transform: rotateX(90deg);
-    -webkit-transform-origin: 50% 50% -20px;
-    -moz-transform-origin: 50% 50% -20px;
-    transform-origin: 50% 50% -20px;
-}
-
-.btn-12 span:nth-child(2) {
-    -webkit-transform: rotateX(0deg);
-    -moz-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    -webkit-transform-origin: 50% 50% -20px;
-    -moz-transform-origin: 50% 50% -20px;
-    transform-origin: 50% 50% -20px;
-}
-
-.btn-12:hover span:nth-child(1) {
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-        7px 7px 20px 0px rgba(0, 0, 0, .1),
-        4px 4px 5px 0px rgba(0, 0, 0, .1);
-    -webkit-transform: rotateX(0deg);
-    -moz-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-}
-
-.btn-12:hover span:nth-child(2) {
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-        7px 7px 20px 0px rgba(0, 0, 0, .1),
-        4px 4px 5px 0px rgba(0, 0, 0, .1);
-    color: transparent;
-    -webkit-transform: rotateX(-90deg);
-    -moz-transform: rotateX(-90deg);
-    transform: rotateX(-90deg);
-}
-
+ 
 
 
 
 
   @media screen and (min-width: 280px) and (max-width: 768px) {
+    
+
     .packages {
       ul {
         li {

@@ -3,7 +3,7 @@ const Cities = require("../models/cities.js")
 const Itinerary = require("../models/itinerary.js")
 
 
-const citiesController = {
+const citiesController = { 
     ObtenerCiudades:async(req,res) => {
         let cities
       

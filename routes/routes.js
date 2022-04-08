@@ -30,10 +30,10 @@ Router.route("/signup")
 Router.route("/verify/:uniqueText")
 .get(verifyEmail)
 
-Router.route("/signin")
+Router.route("/signIn")
 .post(accesoUsuario)
 
-Router.route("/signout")
+Router.route("/signOut")
 .post(cerrarCesion)
 
 Router.route("/coments")

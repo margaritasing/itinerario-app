@@ -11,7 +11,7 @@ const Cities = () => {
   return (
     <div className="cities" id="cities" >
      <FormCity/>
-      <CardCities />     
+     <CardCities />     
     </div>
   );
 };

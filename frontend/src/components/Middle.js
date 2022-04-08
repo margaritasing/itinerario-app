@@ -26,7 +26,8 @@ const Middle = () => {
                 </LinkRouter> 
               </div>              
              
-        </div>              
+        </div>  
+        <h2 style={{textAlign:"center"}}>Itinerary Favorite</h2>            
         </Section>
     
     

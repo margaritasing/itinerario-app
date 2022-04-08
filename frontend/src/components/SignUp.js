@@ -16,7 +16,7 @@ import Container from "@material-ui/core/Container";
 import Swal from "sweetalert2";
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-
+ 
 import axios from 'axios';
 
 function Copyright() {
@@ -67,7 +67,7 @@ export default function SignUp() {
     }
 
     
-   await axios.post("https://itinerarioapp.herokuapp.com/signup",{NuevoUsuario} )
+   await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
    .then(response=>    
    displayMessages(response.data)
  )
@@ -114,9 +114,18 @@ export default function SignUp() {
       
       function displayMessages(data){
       if(data.success==="falseVAL"){
-          console.log(data)
-          console.log(data.response.error.details)
-          alert(data.response.error.details.map(error=>error.message))
+        let errorDetalles = data.response.error.details  
+        console.log(errorDetalles)      
+        errorDetalles.map(
+          error =>
+          Swal.fire({
+            icon: 'error',
+            title: error,
+            text: error.message            
+          })
+          )
+         
+         
       }else if(data.success===true){
           Swal.fire(
           'Good job!',
@@ -151,9 +160,16 @@ export default function SignUp() {
  )
  function displayMessages(data){
   if(data.success==="falseVAL"){
-    console.log(data)
-   console.log(data.response.error.details)
-  alert(data.response.error.details.map(error=>error.message))
+    let errorDetalles = data.response.error.details 
+    console.log(errorDetalles)    
+    errorDetalles.map(
+      error =>     
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: error.response   
+      })
+      )
   }else if(data.success===true){
     Swal.fire(
       'Good job!',

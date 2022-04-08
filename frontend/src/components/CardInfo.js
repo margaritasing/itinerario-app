@@ -62,7 +62,7 @@ const CardInfo = (props) => {
 const Section = styled.section`
   .cardinfo {
     margin-left:280px;
-    margin-top:30px;
+    margin-top:5px;
     
     
   } 

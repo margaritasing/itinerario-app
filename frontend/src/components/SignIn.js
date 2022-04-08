@@ -12,14 +12,14 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
+ 
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 //import TiSocialFacebookCircular from 'react-icons/lib/ti/social-facebook-circular';
 import { useStateValue } from '../reducer/StateProvider';
 import { actionType } from '../reducer/reducer';
 import axios from 'axios';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 function Copyright() {
   return (
@@ -80,12 +80,24 @@ function displayMessages(data) {
   console.log(data)
     if (!data.success) {      
       localStorage.setItem("token", data.response.token) 
-        console.log((data.error))
-        
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'The username and/or password is incorrect!'        
+      })
+      
     }
     else {       
-      localStorage.setItem("token", data.response.token)              
-      console.log(data.response)    
+      localStorage.setItem("token", data.response.token)  
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Welcome',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      
+          
     }
     dispatch({
         type: actionType.USER,
@@ -109,11 +121,22 @@ function displayMessages(data) {
         function displayMessages(data) {
           console.log(data)
             if (!data.success) {
-                console.log(data.error)
-            }
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'The username and/or password is incorrect!'        
+              })
+            }   
             else {
               localStorage.setItem("token", data.response.token)
-               console.log(data.response) 
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Welcome',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              
               }
             
 

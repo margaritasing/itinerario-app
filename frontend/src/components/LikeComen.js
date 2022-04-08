@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import avatar from '../img/avatarImage.png'
 import styled from "styled-components";
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 import { useStateValue } from "../reducer/StateProvider";
-
+ 
 const LikeComen = (props) => {
   
   const [{user}, dispatch]=useStateValue()
@@ -17,7 +18,8 @@ const LikeComen = (props) => {
         'Authorization':'Bearer '+ token //espacio ya aplicado
       }
     })
-    .then(response=> setLikes(response.data.response))    
+    .then(response => setLikes(response.data.response))  
+    
   }
 
  

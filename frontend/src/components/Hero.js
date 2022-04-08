@@ -10,27 +10,9 @@ export default function Hero() {
       </div>
       <div className="content">
         <div className="title">
-          <h1>TRAVEL TO EXPLORE</h1>
+          <h1 style={{fontSize:"70px"}}>TRAVEL TO EXPLORE</h1>
         
-        </div>
-        <div className="search">
-          <div className="container">
-            <label htmlFor="">Where you want to go</label>
-            <input type="text" placeholder="Search Your location" />
-          </div>
-          <div className="container">
-            <label htmlFor="">Check-in</label>
-            <input type="date" />
-          </div>
-          <div className="container">
-            <label htmlFor="">Check-out</label>
-            <input type="date" />
-          </div>
-          <Link className="" aria-current="page" to="/cities">
-            <button className="btn-3"><span>Explore Now</span></button>
-          </Link>
-        
-        </div>
+        </div>       
       </div>
     </Section>
   );

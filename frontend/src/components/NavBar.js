@@ -42,8 +42,8 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-          </div>
-          <Register />
+            </div>
+            <Register />
         </div>
       </div>
     </nav>

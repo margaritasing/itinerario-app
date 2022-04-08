@@ -3,6 +3,7 @@ import React from "react";
 import { useStateValue } from "../reducer/StateProvider";
 
 import HeroCard from "./HeroCard";
+import HeroCity from "./HeroCity";
 import CardInfo from "./CardInfo";
 import { useParams } from "react-router-dom";
 
@@ -29,7 +30,8 @@ const City = () => {
 
   return (
     <div className="city">
-      <HeroCard  itinerary={citySelecter}/>      
+      <HeroCard  itinerary={citySelecter}/>     
+      <HeroCity itinerary={citySelecter}/> 
       <CardInfo itinerary={itinerarySelecter} />      
     </div>
   );

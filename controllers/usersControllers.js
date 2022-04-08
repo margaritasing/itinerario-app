@@ -4,7 +4,7 @@ const User = require("../models/user.js");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { response } = require("express");
-
+ 
 async function sendEmail(email, uniqueText){
 
     const transporter=nodemailer.createTransport({
@@ -24,8 +24,18 @@ async function sendEmail(email, uniqueText){
     const mailOptions={
         from:sender,
         to:email,
-        subject:"Verificacion de usuario",
-        html:`Presiona <a href=https://itinerarioapp.herokuapp.com/api/verify/${uniqueText}>Aqui</a>Para validar tu email`
+        subject:"My Tinerary User Email verification",
+        html:`<div style="margin: 20px; padding: 30px; background:#cf9bec; border:4px solid #a719ca;">
+        <h1 style="color:#a719ca; font-family:Oswald ; font-size: 80px; text-align: center;">My Tinerary </h1>
+        </br>
+        <h2 style="color:#000000; font-style: 20px; text-align:center;"> Click <a 
+        style ="color:#6309f3; font-style:"Oswald"     
+        href=https://itinerarioapp.herokuapp.com/api/verify/${uniqueText}> Here </a>To validate your email </h2>
+        </br>
+        </br>
+        <h6 style="color: #a03a9e; font-size: 12px;text-align: center;">All Rights Reserved Copyright - 2022</h6>
+        <h6 style="color: #a03a9e; font-size: 12px;text-align: center;"><i>powered by Apfel-Urban</i> </h6>
+        </div>`
     }
    await transporter.sendMail(mailOptions, function(error,response){
        if (error) {
@@ -44,7 +54,7 @@ const usersControllers = {
         if (user) {
             user.emailVerificado = true
             await user.save()
-            res.redirect("https://itinerarioapp.herokuapp.com/api/signin")
+            res.redirect("https://itinerarioapp.herokuapp.com/signin")
         }
         else {
             res.json({ success: false, response: "Your e-mail could not be verified" })
@@ -71,9 +81,9 @@ const usersControllers = {
                     usuarioExiste.connected= false; 
 
                     usuarioExiste.save();
-                    res.json({success:true, response:"Actualizo el singin, ahora lo puedes hacer con"+ from})        
+                    res.json({success:true, response:"I update the singin, now you can do it with"+ from})        
                 }else{
-                    res.json({success:false, response:"EL nombre de usuario ya esta en uso"})
+                    res.json({success:false, response:"The username is already in use"})
                 }
                  /* Facebook end if */
 
@@ -125,7 +135,7 @@ const usersControllers = {
                     
                     await newUser.save()
 
-                    res.json({success:true,data:{newUser},response:"Felicitaciones hemos creado tu usuario con"+"" +from})
+                    res.json({success:true,data:{newUser},response:"Congratulations we have created your user with"+"" +from})
                 }else{
                     newUser.emailVerificado=false;
                     newUser.from= from;
@@ -162,7 +172,7 @@ const usersControllers = {
                 } *//* google end else */
             }/* final del else de usuario existe */
         }/* final de try */
-        catch (error) { res.json({ success: "falseVAL",from:"SingUp",  response:"EL correo ya esta en uso", error: error }) }
+        catch (error) { res.json({ success: "falseVAL",from:"SingUp",  response:"The mail is already in use", error: error }) }
     },
 
     accesoUsuario: async (req, res) => {
@@ -173,7 +183,7 @@ const usersControllers = {
             const usuario = await User.findOne({ email })
 
             if (!usuario) {
-                res.json({ success: false, from: "controller", error: "el usuario y/o contraseña es incorrecto" })
+                res.json({ success: false, from: "controller", error: "The username and/or password is incorrect" })
             }
             else {
                 if (usuario.emailVerificado) {
@@ -194,9 +204,9 @@ const usersControllers = {
 
                         res.json({ success: true, from: "controller", response: { token, datosUser } }) // "logueado" })
                     }
-                    else { res.json({ success: false, from: "controller", error: "el usuario y/o contraseña es incorrecto" }) }
+                    else { res.json({ success: false, from: "controller", error: "The username and/or password is incorrect" }) }
                 }
-                else { res.json({ success: false, from: "controller", error: "verifica tu e-mail para validarte" }) }
+                else { res.json({ success: false, from: "controller", error: "Verify your e-mail to validate yourself" }) }
             }
         }
         catch (error) { console.log(error); res.json({ success: false, response: null, error: error }) }
@@ -213,7 +223,7 @@ const usersControllers = {
        /*  user.connected=false */
 
         await user.save()
-        res.json({success:true, response:"cesión cerrada"})
+        res.json({success:true, response:"Closed assignment"})
 
     },
 

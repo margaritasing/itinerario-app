@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useStateValue } from "../reducer/StateProvider";
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 
 
@@ -23,32 +24,35 @@ const Coment = (props) => {
            message:event.target[0].value,
            user:user.datosUser.id
         }        
-        console.log(dataComents)
+      
         await axios.post("https://itinerarioapp.herokuapp.com/api/coments",{dataComents})
-        .then(response => 
+        .then(response =>           
             setComment(response.data.response.comentario))
+            
             setReload(!reload)
         }
-
-    
-        
         
         useEffect(() => {
-            let id= props.itinerary
-           
+            let id= props.itinerary      
       
           axios.get(`https://itinerarioapp.herokuapp.com/api/coments/${id}`)
             .then(response =>{
-                setComment(response.data.response.comentario)
-                
-            })        
-            
+                setComment(response.data.response.comentario)                
+            })              
             
         }, [reload])//quito el reload y se ven los comentarios
         
         const borrarComentarios =async(id) =>{
             
           await  axios.delete(`https://itinerarioapp.herokuapp.com/api/coments/${id}`)
+          .then( response => {
+             let confirmacion = response.data.message         
+              Swal.fire({               
+                text: confirmacion,
+                icon: 'success',             
+                         
+              })
+            })         
             setReload(!reload)
         }
         
@@ -60,7 +64,16 @@ const Coment = (props) => {
         const editar = async(id) =>{
             let data=cambio           
           await  axios.put(`https://itinerarioapp.herokuapp.com/api/coments/${id}`,{data})
-            .then(response => console.log(response))
+            .then(response => {
+              let confirmacion = response.data.mesagge
+                 
+              Swal.fire({               
+                text: confirmacion,
+                icon: 'success',               
+                confirmButtonColor: '#3085d6',
+                              
+              })
+            })
             setReload(!reload)
         }      
      
@@ -86,17 +99,17 @@ const Coment = (props) => {
               <div>
 
                 <div>              
-                     <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"40px", padding:"8px"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
+                     <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"auto", padding:"8px"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
                      >{item.coment}</div>             
                 </div>
                 <div className="delete-edit">
-                    <button type="button" className="btn btn-danger my-2 mx-1 offset-10" onClick={()=> borrarComentarios(item._id)} ><i className="fas fa-trash-alt"></i></button>  
-                    <button type="button" className="btn btn-warning mx-3 offset-10" onClick={()=> editar(item._id)}><i className="fas fa-edit"></i></button>                
+                    <button type="button" className="btn btn-danger my-2 mx-1" onClick={()=> borrarComentarios(item._id)} ><i className="fas fa-trash-alt"></i></button>  
+                    <button type="button" className="btn btn-warning mx-3" onClick={()=> editar(item._id)}><i className="fas fa-edit"></i></button>                
                 </div>           
             </div>
             :
             <div>
-                <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"40px", padding:"8px"}}>{item.coment}</div>             
+                <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"auto", padding:"8px"}}>{item.coment}</div>             
              </div>
         }
             </div>
@@ -116,7 +129,7 @@ const Coment = (props) => {
                 </form>             
            </div>
            :
-           <h6 style={{textAlign:"center"}} >Debes Iniciar seccion para dejarnos tu comentario</h6>
+           <h6 style={{textAlign:"center"}} >You must start the section to leave us your comment</h6>
           }
 
             
@@ -174,6 +187,17 @@ const Section = styled.section`
         width: 95%;
         margin-left:3px;
 
+    }
+
+    .delete-edit{
+        margin-left:150px;
+    
+      }
+
+      .boton-envio{      
+     
+        margin-left:180px;
+       
     }
     
   
