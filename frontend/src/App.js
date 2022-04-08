@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect } from "react";
 
 import { actionType } from "./reducer/reducer";
 import { useStateValue } from "./reducer/StateProvider";
