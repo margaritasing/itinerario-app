@@ -28,7 +28,7 @@ export default function SliderNext() {
                 <Text css={{ color: "$accents4", fontWeight: "$semibold" }}>
                   {carrusel.region}
                 </Text>
-                <Link type="button"  className="btn  mx-5  w-100 mx-3 text-white" to={"/city/" + carrusel._id}>
+                <Link type="button"  className="btn w-100 text-white" to={"/city/" + carrusel._id}>
                 <Button 
                 auto 
                 css={{ 
