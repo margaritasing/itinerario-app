@@ -11,7 +11,7 @@ export default function SliderNext() {
   return (
       <Grid.Container gap={2} justify="flex-start">     
     {cities.slice(9, 17).map((carrusel, index) =>  
-        <Grid xs={6} sm={3} key={index}>
+        <Grid xs={12} sm={3} key={index}>
           <Card hoverable clickable>
             <Card.Body css={{ p: 0 }}>
               <Card.Image
@@ -32,6 +32,7 @@ export default function SliderNext() {
                 <Button 
                 auto 
                 css={{ 
+                    marginLeft:'70px',
                     borderRadius: '$xs', // radii.xs
                     border: '$space$1 solid transparent',
                     background: '$red800', // colors.red800

@@ -10,7 +10,12 @@ export default function Hero() {
       </div>
       <div className="content">
         <div className="title">
-          <h1 style={{fontSize:"70px"}}>TRAVEL TO EXPLORE</h1>
+        <h1 style={{fontSize:"60px", 
+        fontFamily: 'Pacifico, cursive',
+        textShadow:' 0px 12px 7px black',
+         color:"white"}}>
+         TRAVEL TO EXPLORE
+         </h1>
         
         </div>       
       </div>

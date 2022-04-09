@@ -14,13 +14,13 @@ async function sendEmail(email, uniqueText){
         secure:true,
         auth:{
 
-            user:"useremailverifymindhub@gmail.com",
-            pass:"mindhub2021"
+            user:"myitinerary1116@gmail.com",
+            pass:process.env.NODEMAILER,
         }
 
     })
 
-    const sender="useremailverifymindhub@gmail.com"
+    const sender="myitinerary1116@gmail.com"
     const mailOptions={
         from:sender,
         to:email,
