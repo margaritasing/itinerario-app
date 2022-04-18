@@ -58,13 +58,10 @@ export default function SignIn() {
   const classes = useStyles();
 const [{ user }, dispatch] = useStateValue()
 
-/* const responseGoogle = (response) => {
-  console.log(response);
-  
-} */
+
 
 const responseFacebook = async (response) => {
-  console.log(response);
+
 
   const userData = {
     email: response.email,
@@ -77,7 +74,7 @@ const responseFacebook = async (response) => {
     )
   
 function displayMessages(data) {
-  console.log(data)
+  
     if (!data.success) {      
       localStorage.setItem("token", data.response.token) 
       Swal.fire({
@@ -119,7 +116,7 @@ function displayMessages(data) {
                 displayMessages(response.data),
             )
         function displayMessages(data) {
-          console.log(data)
+        
             if (!data.success) {
               Swal.fire({
                 icon: 'error',
@@ -212,16 +209,7 @@ function displayMessages(data) {
           
         </form>   
       </div>
-      <br />
-     {/* <div className="google" style={{marginLeft:"50px"}}>
-     <GoogleLogin
-     clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
-     buttonText="SingIn with Google Account"
-     onSuccess={responseGoogle}
-     onFailure={responseGoogle}
-     cookiePolicy={'single_host_origin'}
-   />
-  </div> */}
+      <br />    
    <div className="facebook" style={{marginTop: "10px", marginLeft:"65px"}}>
    <FacebookLogin
          appId="1062880977629069"

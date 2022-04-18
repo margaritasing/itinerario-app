@@ -14,8 +14,7 @@ function Register() {
         const email = user.datosUser.email
         console.log(email)
         await axios.post("https://itinerarioapp.herokuapp.com/api/signOut", {email})
-        .then(response =>{
-          console.log(response.response)            
+        .then(response =>{                   
             if(response.data.success) {
               localStorage.removeItem("token")
               Swal.fire({
