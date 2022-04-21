@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useStateValue } from "../reducer/StateProvider";
 import axios from 'axios';
 import Swal from "sweetalert2";
+import Avatar from 'react-avatar';
 
 
 
@@ -89,12 +90,18 @@ const Coment = (props) => {
         {comment?.map(item =>
             
              <div key={item._id}>
+             {item.user.imageUser !==
+              "allowExtraEmails" ? 
              <img src={item.user.imageUser} style={{width:"50px",
               height:"50px",
               marginLeft:"25px",
               borderRadius:"50%"
-            }} alt=".." />
-             <p>{item.user.firstname}</p>
+            }} alt=".." />:
+           <div  className="mx-3">
+              <Avatar color={Avatar.getRandomColor('sitebase', ['red', 'green', 'blue'])}  name={item.user.firstname} round={true} size="50"/>            
+           </div>
+          }
+            <p>{item.user.firstname}</p>
              {item.user._id === user?.datosUser.id ?
               <div>
 
