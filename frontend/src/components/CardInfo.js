@@ -22,17 +22,17 @@ const CardInfo = (props) => {
            <div className="row">
            {props.itinerary.map( data=> 
               <div className="card col-md-9" key={data._id}>  
-              <div className="imagen">
+              <div className="imagen"  style={{borderRadius:"40px"}}>
               <img src={data.image} className="img-fluid rounded-start" alt="..." />                   
               </div>                        
               <div className="card-body">
               <h5 className="card-title">{data.name}</h5>
                   <p className="card-text">{data.description}</p>
-                  <p className="card-text"><small className="text-muted">{data.price}</small></p>
+                  <p className="card-text text-white"><small className="">{data.price}</small></p>
               </div>  
 
-              <div>
-                  <Accordion className="acordeon">
+              <div className="my-2">
+                  <Accordion className="acordeon" style={{backgroundColor:"#FFCDDD"}}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1a-content"
@@ -60,16 +60,19 @@ const CardInfo = (props) => {
 }
 
 const Section = styled.section`
-  .cardinfo {
+  .cardinfo {    
     margin-left:280px;
     margin-top:5px;
+    color:#fff;
     
     
   } 
 
   .card{
+    background-color:#8946A6;
     display:flex;
     margin-top:80px;
+    border-radius:15px;
  
   }
 

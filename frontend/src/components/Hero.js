@@ -10,12 +10,12 @@ export default function Hero() {
       </div>
       <div className="content">
         <div className="title">
-        <h1 style={{fontSize:"60px", 
-        fontFamily: 'Pacifico, cursive',
-        textShadow:' 0px 12px 7px black',
-         color:"white"}}>
-         TRAVEL TO EXPLORE
-         </h1>
+          <h1 style={{fontSize:"60px", 
+          fontFamily: 'Pacifico, cursive',
+          textShadow:' 0px 12px 7px black',
+           color:"white"}}>
+           TRAVEL TO EXPLORE
+           </h1>
         
         </div>       
       </div>
@@ -25,7 +25,7 @@ export default function Hero() {
 
 const Section = styled.section`
   position: relative;
-  // margin-top: 1rem;
+
   width: 100%;
   height: 100%;
   
@@ -63,38 +63,7 @@ const Section = styled.section`
         font-size: 1.2rem;
       }
     }
-    .search {
-      display: flex;
-      background-color: #ffffffce;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-      .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 1.5rem;
-        label {
-          font-size: 1.1rem;
-          color: #03045e;
-        }
-        input {
-          background-color: transparent;
-          border: none;
-          text-align: center;
-          color: black;
-          &[type="date"] {
-            padding-left: 3rem;
-          }
-          &::placeholder {
-            color: black;
-          }
-          &:focus {
-            outline: none;
-          }
-        }
-      }
-    
+
     }
   }
 
@@ -210,20 +179,7 @@ const Section = styled.section`
           padding: 1vw;
         }
       }
-      .search {
-        flex-direction: column;
-        padding: 0.8rem;
-        gap: 0.8rem;
-        /* padding: 0; */
-        .container {
-          padding: 0 0.8rem;
-          input[type="date"] {
-            padding-left: 1rem;
-          }
-        }
-      
-        /* display: none; */
-      }
+   
     }
   }
 `;

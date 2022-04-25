@@ -40,7 +40,7 @@ import { useStateValue } from '../reducer/StateProvider';
        type: actionType.CITYCONTINENTE,
        value:value
      })
-    
+     console.log(value)
   }
 
   

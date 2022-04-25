@@ -5,16 +5,19 @@ import axios from 'axios';
 import { actionType } from "../reducer/reducer";
 import Swal from "sweetalert2";
 import styled from "styled-components";
+import Avatar from 'react-avatar';
  
 function Register() {
 
   const [{ user }, dispatch] = useStateValue()
 
+ 
+
     async function cerrarCesion() {
-        const email = user.datosUser.email
-        console.log(email)
+        const email = user.datosUser.email       
         await axios.post("https://itinerarioapp.herokuapp.com/api/signOut", {email})
-        .then(response =>{                   
+        .then(response =>{
+          console.log(response.data)            
             if(response.data.success) {
               localStorage.removeItem("token")
               Swal.fire({
@@ -41,28 +44,43 @@ function Register() {
   function mostrarMenu() {
     showMenu ? setShowMenu(false) : setShowMenu(true);
   }
+
+
+
+  
   return (
     <Section>
     <div className="h-registro">
-    <>
+    <div>
+          
+    {!user?
       <button className="d-flex mx-5" style={{backgroundColor: "#fff", borderRadius:"25px", padding:"10px"}} onClick={mostrarMenu}>
         <i className="fas fa-user"></i>
-      </button>
+      </button>: 
+      <div className="mx-5">
+        <Avatar color={Avatar.getRandomColor('sitebase', ['blue', 'yellow', 'green'])}  name={user.datosUser.firstname} round={true} size="50" onClick={mostrarMenu}/>       
+      </div>
+     
+
+    }
+
+
+
       {showMenu && (
         <div className="h-usuario">
           { !user?
             <LinkRouter to="/signin">
-            <button type="button" className="btn btn-dark bg-dark text-white mt-2">
+            <button type="button" className="btn text-white mt-2" style={{backgroundColor:"#711A75"}}>
               Sign In
             </button>
           </LinkRouter> :
           <LinkRouter to="/signout">            
-          <button type="button" className="btn btn-info bg-warning  text-white  mt-2"  onClick={() => cerrarCesion()}>
+          <button type="button" className="btn btn-warning text-white  mt-2 "  onClick={() => cerrarCesion()}>
           Sign Out</button> 
           </LinkRouter>    
           }
           <LinkRouter to="/signup">
-            <button type="button" className="btn btn-info bg-info  text-white  mt-2">
+            <button type="button" className="btn  text-white  mt-2" style={{backgroundColor:"#711A75"}} >
               Sign Up
             </button>
           </LinkRouter>
@@ -70,7 +88,7 @@ function Register() {
 
         </div>
       )}
-    </>
+    </div>
   </div>
     
     
@@ -95,6 +113,9 @@ const Section = styled.section`
 
 
 @media screen and (max-width:1000px){
+  .h-usuario button{
+    margin:0px;
+  }
     
 }
 
@@ -116,8 +137,12 @@ const Section = styled.section`
   }
 
   .h-usuario button{
-    margin:15px 25px 15px 0px;
+    margin:15px 25px 10px 0px;
     width:100%;
+  }
+
+  .btn-info{
+    margin:10px;
   }
     
 }

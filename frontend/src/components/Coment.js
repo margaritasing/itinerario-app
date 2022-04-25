@@ -101,7 +101,8 @@ const Coment = (props) => {
               <Avatar color={Avatar.getRandomColor('sitebase', ['red', 'green', 'blue'])}  name={item.user.firstname} round={true} size="50"/>            
            </div>
           }
-            <p>{item.user.firstname}</p>
+
+             <p>{item.user.firstname}</p>
              {item.user._id === user?.datosUser.id ?
               <div>
 
@@ -155,6 +156,7 @@ const Section = styled.section`
   .coment{        
       width: 100%;
      margin: 0 10px 0 0px;
+     
   }
 
   .fas{

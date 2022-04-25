@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import Swal from "sweetalert2";
+import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
  
 import axios from 'axios';
@@ -54,7 +55,40 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
-  
+  /* SignUp con Google start */
+    /* const responseGoogle = async (response) => {
+    console.log(response);
+    const NuevoUsuario = {
+      firstname: response.profileObj.givenName,
+      lastname: response.profileObj.familyName,
+      email: response.profileObj.email,
+      password:response.googleId + "aB",
+      from:"Google"
+    }
+
+    
+   await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
+   .then(response=>    
+   displayMessages(response.data)
+ )
+ function displayMessages(data){
+  if(data.success==="falseVAL"){
+    console.log(data)
+   console.log(data.response.error.details)
+  alert(data.response.error.details.map(error=>error.message))
+  }else if(data.success===true){
+    Swal.fire(
+      'Good job!',
+      'Registered user with Google!',
+      'success'
+    )
+    console.log(data)
+  }
+ }
+    
+  }  */
+
+  /* SignUp con Google end */
 
   /* Aqui comienza el sign up de facebook */
 
@@ -71,7 +105,7 @@ export default function SignUp() {
     }  
 
       await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
-      .then(response=> 
+      .then(response=> //alert(response.data.response)) 
 
 
       displayMessages(response.data)
@@ -80,7 +114,8 @@ export default function SignUp() {
       
       function displayMessages(data){
       if(data.success==="falseVAL"){
-        let errorDetalles = data.response.error.details             
+        let errorDetalles = data.response.error.details  
+        console.log(errorDetalles)      
         errorDetalles.map(
           error =>
           Swal.fire({
@@ -96,7 +131,8 @@ export default function SignUp() {
           'Good job!',
           'Registered user with Facebook! <br /> I update the singin, now you can do it with Facebook',
           'success'
-          )     
+          )
+      console.log(data)
       }
     }
   }
@@ -113,7 +149,8 @@ export default function SignUp() {
                           email:event.target[4].value,
                           password:event.target[6].value,
                           from:"SignUp"                        
-                        }          
+                        }  
+            console.log(NuevoUsuario)
  
    await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
    .then(response=> //alert(response.data.response)) 
@@ -123,12 +160,13 @@ export default function SignUp() {
  )
  function displayMessages(data){
   if(data.success==="falseVAL"){
-    let errorDetalles = data.response.error.details        
+    let errorDetalles = data.response.error.details 
+    console.log(errorDetalles)    
     errorDetalles.map(
       error =>     
       Swal.fire({
         icon: 'error',
-        title: 'Error',
+        title: 'error',
         text: error.message   
       })
       )
@@ -137,7 +175,8 @@ export default function SignUp() {
       'Good job!',
       'Registered user with SingIn!, <br /> We have sent an e-mail to verify your e-mail address',
       'success'
-    )   
+    )
+    console.log(data)
   }
  }
   }
@@ -231,7 +270,14 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
-        <br />     
+        <br />
+        { /* <GoogleLogin
+          clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
+          buttonText="SingUp with Google Account"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}/>
+  <br /> */}
         <FacebookLogin
           appId="1062880977629069"
           autoLoad={false}

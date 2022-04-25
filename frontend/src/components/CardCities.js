@@ -66,6 +66,7 @@ export default function CardCities() {
 
 const Section = styled.section`
   padding: 2rem 0;
+  
   .title {
     text-align: center;
   }
@@ -92,6 +93,7 @@ const Section = styled.section`
     }
   }
   .destinations {
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
@@ -101,7 +103,7 @@ const Section = styled.section`
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      background-color: #8338ec14;
+      background-color: #fff;
       border-radius: 1rem;
       transition: 0.3s ease-in-out;
       &:hover {
@@ -136,7 +138,9 @@ const Section = styled.section`
   }
 
  
-
+.info{
+  background-color:#fff;
+}
 
 
 

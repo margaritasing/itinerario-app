@@ -61,6 +61,7 @@ const Section = styled.section`
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   .service {
+    border-radius:20px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

@@ -2,35 +2,32 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
-import { BsLinkedin, BsFacebook } from "react-icons/bs";
+import { BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 export default function Footer() {
   return (
-    <FooterContainer className="bg-light" style={{color:"#4361ee",fontFamily:"Satisfy, cursive", fontSize:"25px"}}>
+    <FooterContainer className="" style={{ backgroundColor:"#AB46D2" , color:"#fff",fontFamily:"Satisfy, cursive", fontSize:"25px"}}>
       <span style={{fontSize:"35px"}}> My Itinerary</span>
-      <span style={{color:"#4361ee"}}>Copyright &copy; 2022</span>
-      <ul className="links">
+      <span style={{color:"#fff"}}>Copyright &copy; 2022</span>
+      <ul className="links" >
         <li >
-        <Link className="nav-link active" aria-current="page" to="/">
+        <Link  style={{color:"#fff"}} className="nav-link active" aria-current="page" to="/">
                   Home
-         </Link>
+          </Link>
         </li>
         <li>
-        <Link className="nav-link" aria-current="page" to="/cities">
+        <Link  style={{color:"#fff"}}  className="nav-link" aria-current="page" to="/cities">
                   Cities
          </Link>
         </li>
         
       </ul>
-      <ul className="social__links">
+      <ul className="social__links">        
         <li>
-          <BsFacebook />
-        </li>
+        <a href="https://twitter.com/LibiaMFM"><BsTwitter/></a>        
+        </li>   
         <li>
-          <AiFillInstagram />
-        </li>
-        <li>
-          <BsLinkedin />
+        <a href="https://www.linkedin.com/in/libia-m-freites-m/"><BsLinkedin /></a>  
         </li>
       </ul>
     </FooterContainer>

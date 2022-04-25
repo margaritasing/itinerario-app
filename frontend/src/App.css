@@ -1,3 +1,7 @@
 html {
     user-select: none;
 }
+
+body {
+    background-color: #eb8fe0;
+}

@@ -11,9 +11,9 @@ function Navbar() {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" style={{fontFamily:"Satisfy, cursive", fontSize:"25px" }}>
+    <nav className="navbar navbar-expand-lg navbar-light sticky-top" style={{ backgroundColor:"#AB46D2" ,  fontFamily:"Satisfy, cursive", fontSize:"25px" }}>
       <div className="container-fluid">
-        <a className="navbar-brand ms-3" href="/#" style={{color:"#4361ee", fontSize:"35px"}}>
+        <a className="navbar-brand ms-3" href="/#" style={{color:"#fff", fontSize:"35px"}}>
           <img className="img-top ms-3 me-1" src={Imagen} alt="..." />
           My Itinerary
         </a>
@@ -32,12 +32,12 @@ function Navbar() {
           <div className="navegacion offset-8">
             <ul className="navbar-nav ">
               <li className="nav-item">
-                <Link className="nav-link active" style={{color:"#4361ee"}} aria-current="page" to="/">
+                <Link className="nav-link active" style={{color:"#fff"}} aria-current="page" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item ">
-                <Link className="nav-link" style={{color:"#4361ee"}} aria-current="page" to="/cities">
+                <Link className="nav-link" style={{color:"#fff"}} aria-current="page" to="/cities">
                   Cities
                 </Link>
               </li>

@@ -5,8 +5,8 @@ import { useStateValue } from "../reducer/StateProvider";
 import HeroCard from "./HeroCard";
 import HeroCity from "./HeroCity";
 import CardInfo from "./CardInfo";
-import SliderCity from "./SliderCity"
 import { useParams } from "react-router-dom";
+import SliderCity from "./SliderCity";
 
 
 
@@ -33,9 +33,9 @@ const City = () => {
     <div className="city">
       <HeroCard  itinerary={citySelecter}/>     
       <HeroCity itinerary={citySelecter}/> 
-      <CardInfo itinerary={itinerarySelecter} />  
+      <CardInfo itinerary={itinerarySelecter} /> 
       <h3 style={{ textAlign:"center", margin:"10px" }}>Other City</h3>  
-      <SliderCity/>      
+      <SliderCity/>    
     </div>
   );
 };
