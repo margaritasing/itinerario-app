@@ -1,7 +1,7 @@
 # itinerario-reducer
 Sitio de Itinerarios de Viaje, usando MERN
 
-https://itinerario-reducer.vercel.app/
+
 
 ## El front end , esta con React,
 ## el back end, Node.js,
