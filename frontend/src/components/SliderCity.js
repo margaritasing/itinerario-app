@@ -16,7 +16,8 @@ export default function SliderCity() {
             <Card.Body css={{ p: 0 }}>
               <Card.Image
                 objectFit="cover"
-                src={carrusel.image}
+                src={carrusel.image}          
+              
                 width="100%"
                 height={100}
                 alt={carrusel.name}
@@ -32,7 +33,7 @@ export default function SliderCity() {
                 <Button 
                 auto 
                 css={{ 
-                    marginLeft:'70px',
+                    width:'100%',
                     borderRadius: '$xs', // radii.xs
                     border: '$space$1 solid transparent',
                     background: '$red800', // colors.red800

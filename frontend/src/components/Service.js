@@ -61,6 +61,7 @@ const Section = styled.section`
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   .service {
+    margin:5px;
     border-radius:20px;
     display: flex;
     flex-direction: column;
@@ -81,12 +82,18 @@ const Section = styled.section`
     }
   }
   @media screen and (min-width: 280px) and (max-width: 720px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
-    .service {     
+    .service{
+      width: 350px;   
+      margin:10px;
+      padding:20px;
+    }
+
+    .service {        
       .icon {
         img {
-          margin-left:120px;
+          margin-left:130px;
           height: 2.4rem;
         }
       }

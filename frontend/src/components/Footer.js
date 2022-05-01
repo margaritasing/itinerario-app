@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
 import { BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
-import { AiFillInstagram } from "react-icons/ai";
+
 export default function Footer() {
   return (
-    <FooterContainer className="" style={{ backgroundColor:"#AB46D2" , color:"#fff",fontFamily:"Satisfy, cursive", fontSize:"25px"}}>
+    <FooterContainer className="" style={{ backgroundColor:"#AB46D2", color:"#fff",fontFamily:"Satisfy, cursive", fontSize:"25px"}}>
       <span style={{fontSize:"35px"}}> My Itinerary</span>
       <span style={{color:"#fff"}}>Copyright &copy; 2022</span>
+    
       <ul className="links" >
         <li >
         <Link  style={{color:"#fff"}} className="nav-link active" aria-current="page" to="/">
@@ -35,6 +36,7 @@ export default function Footer() {
 }
 
 const FooterContainer = styled.footer`
+
   display: flex;
   justify-content: space-around;
   background-color: #d0d8ff;

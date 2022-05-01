@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
 html {
     user-select: none;
 }
 
 body {
     background-color: #eb8fe0;
+}
+
+.sombra {
+    border-radius: 25px;
+    background: linear-gradient(145deg, #5a355f, #401746);
+    box-shadow: 8px 8px 16px #7a3a83,
+        -8px -8px 16px #ffc6ff;
 }

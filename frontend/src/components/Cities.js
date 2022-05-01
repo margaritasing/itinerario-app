@@ -1,7 +1,8 @@
 import React from "react";
+import CardComponente from "./Card/CardComponente";
 
 
-import CardCities from "./CardCities";
+
 
 import FormCity from "./FormCity";
 
@@ -11,7 +12,8 @@ const Cities = () => {
   return (
     <div className="cities" id="cities" >
      <FormCity/>
-     <CardCities />     
+     <CardComponente/>
+    
     </div>
   );
 };

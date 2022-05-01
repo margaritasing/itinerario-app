@@ -18,7 +18,7 @@ export default function HeroCard(props) {
       <div className="content">        
           <div className="title">
               <h1>{data.name}</h1>
-              <p>{data.description}</p>
+             
           </div>     
           <div className="search">
              <img className="bandera" src={data.flag} alt="..."/>          

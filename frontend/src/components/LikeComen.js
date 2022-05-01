@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import avatar from '../img/avatarImage.png'
 import styled from "styled-components";
 import axios from 'axios';
+import Avatar from 'react-avatar';
 
 
 import { useStateValue } from "../reducer/StateProvider";
  
 const LikeComen = (props) => {
+  console.log(props)
   
   const [{user}, dispatch]=useStateValue()
   const [likes, setLikes] =useState(props.likes)
@@ -15,7 +17,7 @@ const LikeComen = (props) => {
     const token=localStorage.getItem("token")
     await axios.put(`https://itinerarioapp.herokuapp.com/api/likesDisLike/${props.id}`,{},{
       headers:{
-        'Authorization':'Bearer '+ token //espacio ya aplicado
+        'Authorization': 'Bearer '+ token //espacio ya aplicado
       }
     })
     .then(response => setLikes(response.data.response))  
@@ -23,26 +25,34 @@ const LikeComen = (props) => {
   }
 
  
-  
-  let colorCorazon=likes?.includes(user?.datosUser.id)? 'fas fa-heart-circle':"fas fa-heart"   
+   
+  let colorCorazon=likes?.includes(user?.datosUser.id) ? 'fas fa-heart-circle':"fas fa-heart"   
   
 
   return (
     <Section>
         <div className='content-usuario'>
 
-              <div className='avatar'>
-              {user?
-                <img src={user?.datosUser.imageUser} alt=".." />
-                :                
-                <img src={avatar} alt=".." />
+              <div className='avatar my-3'>                    
+              {!user?
+                <button className="d-flex mx-5" style={{backgroundColor: "#fff", borderRadius:"25px", padding:"10px"}}>
+                  <i className="fas fa-user"></i>
+                </button>: 
+                <div className="">
+                  <Avatar color={Avatar.getRandomColor('sitebase', ['blue', 'yellow', 'green'])}  name={user.datosUser.firstname } round={true} size="50"/>       
+                </div>
               }
-                <p className='user mx-0'>{user?.datosUser.firstname}</p>      
+
+              {user?.lastname === "facebook"?
+              <p className='user mx-0'>{user.datosUser.firstname}</p>:
+              <p className='user mx-0'>{user.datosUser.firstname} <span>{user.datosUser.lastname}</span></p>
+              }
+                     
               </div>
 
               <div className='like mx-3 my-2'>
                 <button className='btn btn-like' onClick={likeDislike}><i className={colorCorazon}></i></button>
-                <span>{likes.length}</span>        
+                <span>{likes?.length}</span>        
               </div>
       
         </div>   

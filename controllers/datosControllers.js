@@ -47,19 +47,23 @@ const citiesController = {
         try {           
             itinerary = await Itinerary.findOne({_id:id})     
 
-            if(itinerary.likes.includes(user)){
+            if(itinerary.likes.includes(user)) {
+
                 Itinerary.findOneAndUpdate({_id:id}, {$pull:{likes:user}}, {new:true})
-                .then(response=> res.json({success:true, response:response.likes}))
+                .then(response=>res.json({success:true, response:response.likes}))
+
                 .catch(error=> console.log(error))
+                
             }else{
                 Itinerary.findOneAndUpdate({_id:id}, {$push:{likes:user}}, {new:true})
-                .then(response=> res.json({success:true, response:response.likes}))
+                .then(response=>res.json({success:true, response:response.likes}))
+
                 .catch(error=> console.log(error))
             }                
             
-        } catch (error) {
-            error = err
-            response.json({success:false, response:err})                     
+        } catch (err) {
+            error=err
+            res.json({success:false, response:error})                     
         }
        
 

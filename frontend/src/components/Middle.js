@@ -40,19 +40,24 @@ const Section = styled.section`
   display:flex;
   justify-content:space-around; 
   background-color:#fff; 
+  height:400px;
+}
+
+img{
+  width:400px;
+  height:400px;
+  margin-left:10px;
 }
 
 .text-middle{
-  margin-top:80px;
+  margin-top:20px;
 }
 
 h2{
-  margin-bottom:50px;
+  margin-bottom:5px;
 }
 
-ul{
-  margin-top:30px;
-}
+
 
 li::marker {
   color: green;
@@ -62,11 +67,11 @@ li::marker {
 
 li{
   margin-top:20px;
-  margin-bottom:30px;
+ 
 }
 
 button{
-  margin-top:50px;
+  margin-top:20px;
   margin-left:160px;
   background-color:#0d6efd;
   color:#fff;
@@ -163,26 +168,40 @@ button{
 
     .middle{
        flex-direction: column;
+       margin-top:100px;
+       height:600px;
+     
     }
     img{
-      width:350px;
-      height:350px;
-      margin-left:10px;
+      width:100%;
+      height:300px;
+      margin: 20px 0 0 0;
+      
     }
 
     h2{     
-      margin: 0 0 0 15px;
+      margin: 0 0 0 10px;
+      font-size:20px;
     }
 
     .text-middle{
       margin-top:0;
     }
 
+    ul{
+      font-size:15px;
+    }
+
+    li{
+      margin-top:10px;
+     
+    }
+
     
     
     ul{  
       margin-left:5px;   
-      margin-top:5px;
+    
      }
 
      button {

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect } from "react";
 
 import { actionType } from "./reducer/reducer";
 import { useStateValue } from "./reducer/StateProvider";
@@ -21,7 +21,9 @@ import Home from "./components/Home";
 import Cities from "./components/Cities";
 import Navbar from "./components/NavBar";
 import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp"; 
+
+import AddFormRegister from "./components/form-register/AddFormRegister";
+import AddFormLogin from "./components/form-login/AddFormLogin";
 
 import City from "./components/City";
 import Top from "./components/Top";
@@ -82,8 +84,8 @@ function App() {
         <Routes>
           <Route index element={<Home />} /> {/* lo cambio para verificar las rutas */}
           <Route path="/cities" element={<Cities />} />          
-          <Route path="/signin" element={<SignIn />} />          
-          <Route path="/signup" element={<SignUp />} />  
+          <Route path="/signin" element={<AddFormLogin />} />          
+          <Route path="/signup" element={<AddFormRegister />} />  
           <Route path="/signout" element={<SignOut />} />          
           <Route path="/city/:id" element={<City/>}
           />

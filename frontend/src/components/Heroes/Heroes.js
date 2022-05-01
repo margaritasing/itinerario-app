@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Heroes = () =>{
 
-    return(    
+    return(     
         <Section>
             <div className="heroes">
                 <h1>Travel routes so that everything goes perfect</h1>
@@ -28,8 +28,12 @@ const Heroes = () =>{
 const Section = styled.section`
 .heroes{
     height:250px;
-    margin:30px 30px 50px 30px;   
+    margin:30px 30px 50px 30px;  
+   
 }
+
+
+
 
 h1, h2{    
     margin:20px;

@@ -32,7 +32,7 @@ export default function SliderNext() {
                 <Button 
                 auto 
                 css={{ 
-                    marginLeft:'70px',
+                    width:'100%',                    
                     borderRadius: '$xs', // radii.xs
                     border: '$space$1 solid transparent',
                     background: '$red800', // colors.red800

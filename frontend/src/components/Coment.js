@@ -97,17 +97,21 @@ const Coment = (props) => {
               marginLeft:"25px",
               borderRadius:"50%"
             }} alt=".." />:
-           <div  className="mx-3">
+           <div  className="mx-3 mt-3"> 
               <Avatar color={Avatar.getRandomColor('sitebase', ['red', 'green', 'blue'])}  name={item.user.firstname} round={true} size="50"/>            
            </div>
           }
 
-             <p>{item.user.firstname}</p>
-             {item.user._id === user?.datosUser.id ?
+          {item.user.lastname === "facebook"?
+          <p>{item.user.firstname}</p>:
+          <p>{item.user.firstname} <span>{item.user.lastname}</span></p>
+          }
+
+          {item.user._id === user?.datosUser.id ?
               <div>
 
                 <div>              
-                     <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"auto", padding:"8px"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
+                     <div className="comentario-" style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"15px", width:"100%", height:"auto", padding:"8px"}}  onInput={handleChange} contentEditable suppressContentEditableWarning
                      >{item.coment}</div>             
                 </div>
                 <div className="delete-edit">
@@ -117,7 +121,7 @@ const Coment = (props) => {
             </div>
             :
             <div>
-                <div style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"5px", width:"100%", height:"auto", padding:"8px"}}>{item.coment}</div>             
+                <div  className="comentario-" style={{border:"0",backgroundColor:"#F3E9DD", borderRadius:"15px", width:"100%", height:"auto", padding:"8px", fontSize:"auto"}}>{item.coment}</div>             
              </div>
         }
             </div>
@@ -129,7 +133,7 @@ const Coment = (props) => {
                     
                 <div className="mb-3">
                     <label htmlFor="disabledTextInput" className="form-label"></label>
-                    <input type="text"  className="form-control w-100" placeholder="Write us" />
+                    <input type="text"  className="form-control w-100" style={{borderRadius:"50px"}} placeholder="Write us" />
                 </div>                    
                    <div className="boton-envio">
                    <button type="submit" className="btn btn-primary"><i className="fas fa-paper-plane" /></button>                    
@@ -162,11 +166,12 @@ const Section = styled.section`
   .fas{
       font-size:15px;
       color:#ffffff;
-      margin-top:10px;
+      
+     
   }
 
   .boton-envio{
-      width:130px;
+      width:100px;
       heigth:30px;
       margin-left:350px;
      
@@ -177,35 +182,41 @@ const Section = styled.section`
 
   }
 
-  .fa-paper-plane{
-      width:50px;
-      
-  }
-
-
-
-
-
- 
-
   
+
+  .btn{
+    width:40px;
+    border-radius:50px;
+  }  
 
   
   @media screen and (min-width: 280px) and (max-width: 720px) {
+
+    .comentario- {
+      font-size:80%;
+      height:auto;
+      border-radius:15px;
+    }
     .coment{        
         width: 95%;
         margin-left:3px;
 
     }
 
+    .btn{
+      width:40px;
+      border-radius:50px;
+      text-align:center;
+    }
+
     .delete-edit{
-        margin-left:150px;
+      font-size:5px;
+      margin-left:190px;
     
       }
 
-      .boton-envio{      
-     
-        margin-left:180px;
+      .boton-envio{     
+        margin-left:150px;
        
     }
     

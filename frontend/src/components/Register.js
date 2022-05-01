@@ -52,6 +52,7 @@ function Register() {
     <Section>
     <div className="h-registro">
     <div>
+    
           
     {!user?
       <button className="d-flex mx-5" style={{backgroundColor: "#fff", borderRadius:"25px", padding:"10px"}} onClick={mostrarMenu}>
