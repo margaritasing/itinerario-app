@@ -1,27 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.aabd0f05.css",
-    "main.js": "/static/js/main.2bad3c63.js",
+    "main.css": "/static/css/main.ecd269c9.css",
+    "main.js": "/static/js/main.4b7113e0.js",
     "static/media/Destination6.jpg": "/static/media/Destination6.3d3b146cd484feeb60b3.jpg",
-    "static/media/hero.png": "/static/media/hero.f86106e3aaf0d5316198.png",
+    "static/media/continente.png": "/static/media/continente.135bb6f34d33c2897951.png",
     "static/media/singout.png": "/static/media/singout.c8d93d1851888d1ec89d.png",
-    "static/media/Destination5.png": "/static/media/Destination5.8db742a0db2114f7116a.png",
-    "static/media/Destination2.png": "/static/media/Destination2.64eec9804e3149d26787.png",
-    "static/media/Destination1.png": "/static/media/Destination1.b43b40ebcae365ec1bcf.png",
-    "static/media/Destination4.png": "/static/media/Destination4.c19a433ba2f75f2cd33b.png",
-    "static/media/Destination3.png": "/static/media/Destination3.b4028caa98dffd19d08e.png",
+    "static/media/moneda.png": "/static/media/moneda.0f87705556be8d693c42.png",
+    "static/media/imagenviajes.png": "/static/media/imagenviajes.3d7068f24a94d0645524.png",
     "static/media/avatarImage.png": "/static/media/avatarImage.ff189eec56a96a928730.png",
+    "static/media/ciudad.png": "/static/media/ciudad.d7bdc6ea14c805eafd85.png",
     "static/media/middle.png": "/static/media/middle.835c45ec6570a005287b.png",
+    "static/media/descripcion.png": "/static/media/descripcion.e882750810b0ba7d810c.png",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/index.html",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
-    "main.aabd0f05.css.map": "/static/css/main.aabd0f05.css.map",
-    "main.2bad3c63.js.map": "/static/js/main.2bad3c63.js.map"
+    "main.ecd269c9.css.map": "/static/css/main.ecd269c9.css.map",
+    "main.4b7113e0.js.map": "/static/js/main.4b7113e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.aabd0f05.css",
-    "static/js/main.2bad3c63.js"
+    "static/css/main.ecd269c9.css",
+    "static/js/main.4b7113e0.js"
   ]
 }
