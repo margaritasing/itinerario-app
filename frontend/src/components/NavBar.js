@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import Imagen from "../img/logo.png";
-import { useState } from "react";
+
 
 
 import Register from "./Register";

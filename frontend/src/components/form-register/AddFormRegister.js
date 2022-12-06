@@ -22,7 +22,7 @@ function AddFormRegister() {
                         from:"Facebook"    
     }  
 
-      await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
+      await axios.post("https://myitinerary.up.railway.app/api/signup",{NuevoUsuario} )
       .then(response=> 
 
 
@@ -71,7 +71,7 @@ function AddFormRegister() {
                         }  
             console.log(NuevoUsuario)
  
-   await axios.post("https://itinerarioapp.herokuapp.com/api/signup",{NuevoUsuario} )
+   await axios.post("https://myitinerary.up.railway.app/api/signup",{NuevoUsuario} )
    .then(response=> 
   
    

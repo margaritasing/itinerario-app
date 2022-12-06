@@ -26,7 +26,7 @@ const Coment = (props) => {
            user:user.datosUser.id
         }        
       
-        await axios.post("https://itinerarioapp.herokuapp.com/api/coments",{dataComents})
+        await axios.post("https://myitinerary.up.railway.app/api/coments",{dataComents})
         .then(response =>           
             setComment(response.data.response.comentario))
             
@@ -36,7 +36,7 @@ const Coment = (props) => {
         useEffect(() => {
             let id= props.itinerary      
       
-          axios.get(`https://itinerarioapp.herokuapp.com/api/coments/${id}`)
+          axios.get(`https://myitinerary.up.railway.app/api/coments/${id}`)
             .then(response =>{
                 setComment(response.data.response.comentario)                
             })              
@@ -45,7 +45,7 @@ const Coment = (props) => {
         
         const borrarComentarios =async(id) =>{
             
-          await  axios.delete(`https://itinerarioapp.herokuapp.com/api/coments/${id}`)
+          await  axios.delete(`https://myitinerary.up.railway.app/api/coments/${id}`)
           .then( response => {
              let confirmacion = response.data.message         
               Swal.fire({               
@@ -64,7 +64,7 @@ const Coment = (props) => {
         
         const editar = async(id) =>{
             let data=cambio           
-          await  axios.put(`https://itinerarioapp.herokuapp.com/api/coments/${id}`,{data})
+          await  axios.put(`https://myitinerary.up.railway.app/api/coments/${id}`,{data})
             .then(response => {
               let confirmacion = response.data.mesagge
                  
