@@ -26,7 +26,9 @@ const LikeComen = (props) => {
 
  
    
-  let colorCorazon=likes?.includes(user?.datosUser.id) ? 'fas fa-heart-circle':"fas fa-heart"   
+  let colorCorazon=likes?.includes(user?.datosUser.id) ? 'fas fa-heart-circle':"fas fa-heart"  
+  
+  console.log(user)
   
 
   return (
@@ -43,10 +45,10 @@ const LikeComen = (props) => {
                 </div>
               }
 
-              {user?.lastname === "facebook"?
+             {/*  {user?.lastname === "facebook"?
               <p className='user mx-0'>{user.datosUser.firstname}</p>:
               <p className='user mx-0'>{user.datosUser.firstname} <span>{user.datosUser.lastname}</span></p>
-              }
+              } */}
                      
               </div>
 
